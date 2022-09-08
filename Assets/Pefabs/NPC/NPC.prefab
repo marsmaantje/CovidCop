@@ -4912,7 +4912,7 @@ GameObject:
   - component: {fileID: 4521767904463081990}
   m_Layer: 0
   m_Name: NPC
-  m_TagString: GameController
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

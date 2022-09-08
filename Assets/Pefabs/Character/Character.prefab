@@ -4825,6 +4825,7 @@ GameObject:
   - component: {fileID: 2447189043151084778}
   - component: {fileID: 3851124701801808608}
   - component: {fileID: 4312438823521274648}
+  - component: {fileID: 3749225873561433667}
   m_Layer: 0
   m_Name: Character
   m_TagString: GameController
@@ -4962,6 +4963,19 @@ MonoBehaviour:
   bulletPrefab: {fileID: 0}
   shootForce: 10
   shootPoint: {fileID: 0}
+--- !u!114 &3749225873561433667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2447189043151084784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7fe0ae9cd0708b4381d1f9483b161af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2447189043151084784}
 --- !u!1 &2447189044557235999
 GameObject:
   m_ObjectHideFlags: 0
