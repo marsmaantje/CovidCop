@@ -4856,7 +4856,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2447189043151084784}
-  m_Material: {fileID: 13400000, guid: 00cde7976d2362a48aa0b7bf9b5e9686, type: 2}
+  m_Material: {fileID: 13400000, guid: 386ff472f8ff87d4db36d1bda67c01e8, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -4891,7 +4891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fc9218d30873a14e8977b058f45619d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 2447189043151084778}
   isJumping: 0
   _rideHeight: 1
 --- !u!114 &4312438823521274648
@@ -4906,19 +4906,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc0da82cf0d7d4ea69fd4e0f247f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pivot: {fileID: 0}
+  pivot: {fileID: 2447189043151084782}
   maxSpeed: 8
   Acceleration: 10
   AccelerationFactorFromDot:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  MaxAccelerationForce: 150
+  MaxAccelerationForce: 50
   MaxAccelerationForceFactorFromDot:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -4944,24 +4980,56 @@ MonoBehaviour:
   JumpFallFactor: 2
   JumpSkipGroundCheckDuration: 0.5
   jumpInterval: 0.3
-  rotationSpeed: 2
+  rotationSpeed: 5
   viewDesiredDirection: 0
   rotationSpeedFactorFromMagnitude:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   rotationDampingCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  usePooling: 0
-  bulletPrefab: {fileID: 0}
-  shootForce: 10
-  shootPoint: {fileID: 0}
 --- !u!1 &2447189044557235999
 GameObject:
   m_ObjectHideFlags: 0
@@ -5191,7 +5259,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: da0a62d5a75b7944c82f76e2dade8927, type: 2}
+  - {fileID: 2100000, guid: ce38ae1268a8da94db04f7456912c60a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

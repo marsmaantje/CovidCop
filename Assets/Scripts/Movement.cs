@@ -35,12 +35,6 @@ public class Movement : MonoBehaviour
     public AnimationCurve rotationSpeedFactorFromMagnitude;
     public AnimationCurve rotationDampingCurve;
 
-    [Header("Shooting")]
-    public bool usePooling = false;
-    public GameObject bulletPrefab;
-    public float shootForce = 10;
-    public Transform shootPoint;
-
     #endregion
 
     #region private variables
