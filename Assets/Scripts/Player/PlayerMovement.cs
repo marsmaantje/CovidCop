@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public Movement movement;
     bool isMouse = false;
     public PhysicMaterial deathMaterial;
-    public Collider collider;
+    new public Collider collider;
     public PlayerInput input;
     Gamepad controller;
 
