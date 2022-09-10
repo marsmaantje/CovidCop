@@ -1,0 +1,1 @@
+all the textures for the houses + the flat is the same
