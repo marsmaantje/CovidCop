@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,15 +29,23 @@ public class PlayerMovement : MonoBehaviour
         if (input == null) Debug.LogError("No player input attached to player");
         
         if (input != null && input.user.controlScheme.HasValue)
-            isMouse = input.user.controlScheme.Value.name == "Keyboard and Mouse";
+            isMouse = input.user.controlScheme.Value.name.Equals("Keyboard and Mouse");
 
         if (!isMouse && input != null)
             controller = (Gamepad)input.user.pairedDevices[0];
     }
 
+    private void CheckControls()
+    {
+        //check whether new input is mouse/keyboard
+        if (input.user.controlScheme.HasValue)
+            isMouse = input.user.controlScheme.Value.name.Equals("Keyboard and Mouse");
+    }
+
     // Update is called once per frame
     void Update()
     {
+        CheckControls();
         if (isMouse)
         {
             Vector2 mousePosition = Mouse.current.position.ReadValue();
