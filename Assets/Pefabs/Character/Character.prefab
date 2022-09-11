@@ -5041,7 +5041,7 @@ GameObject:
   - component: {fileID: 2447189044557235998}
   - component: {fileID: 2447189044557235996}
   - component: {fileID: 2447189044557235997}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5126,7 +5126,7 @@ GameObject:
   - component: {fileID: 2551095138771887885}
   - component: {fileID: 886045553791431046}
   - component: {fileID: 76330587818532960}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5209,7 +5209,7 @@ GameObject:
   - component: {fileID: 7461240453015401516}
   - component: {fileID: 3469035175449166292}
   - component: {fileID: 8899053132855714427}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: backpack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
