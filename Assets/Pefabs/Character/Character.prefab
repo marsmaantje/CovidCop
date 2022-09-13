@@ -4825,7 +4825,6 @@ GameObject:
   - component: {fileID: 2447189043151084778}
   - component: {fileID: 3851124701801808608}
   - component: {fileID: 4312438823521274648}
-  - component: {fileID: 3749225873561433667}
   m_Layer: 0
   m_Name: Character
   m_TagString: GameController
