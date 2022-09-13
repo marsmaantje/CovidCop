@@ -112,8 +112,10 @@ public class Movement : MonoBehaviour
             //transform the input vector into world space
             Vector3 inputDir = Quaternion.Euler(0, pivot.eulerAngles.y, 0) * viewDirection;
 
-            if (viewDirection.magnitude > 1)
+            if (viewDirection.magnitude > 1) 
                 viewDirection.Normalize();
+
+                
             float rotationSpeedFactor = rotationSpeedFactorFromMagnitude.Evaluate(viewDirection.magnitude);
 
             float yAngleDifference = Vector3.SignedAngle(transform.forward, inputDir, Vector3.up);

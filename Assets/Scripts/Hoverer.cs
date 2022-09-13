@@ -16,7 +16,7 @@ public class Hoverer : MonoBehaviour
     readonly float _rideSpringStrength = 150;
     readonly float _stickHeight = 0.5f;
     readonly float _rideSpringDamper = 8;
-    
+
     readonly float _uprightSpringStrength = 20;
     readonly float _uprightSpringDamper = 0.1f;
 
@@ -29,7 +29,7 @@ public class Hoverer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -46,10 +46,10 @@ public class Hoverer : MonoBehaviour
 
         Vector3 rayDir = Vector3.down;
         RaycastHit hit;
-        bool rayHit = Physics.Raycast(transform.position, rayDir, out hit, _rideHeight + (isJumping? 0 : _stickHeight));
+        bool rayHit = Physics.Raycast(transform.position, rayDir, out hit, _rideHeight + (isJumping ? 0 : _stickHeight));
         isOnGround = rayHit;
         rbGround = hit.rigidbody;
-        
+
         if (rayHit)
         {
             //our velocity
@@ -73,7 +73,7 @@ public class Hoverer : MonoBehaviour
 
             //distance to our desired height
             float x = hit.distance - _rideHeight;
-            
+
             //force we are going to apply
             float springForce = (x * _rideSpringStrength) - (relVel * _rideSpringDamper);
 
@@ -92,7 +92,7 @@ public class Hoverer : MonoBehaviour
             }
         }
     }
-    
+
     private void UprightForce()
     {
         Quaternion characterCurrent = transform.rotation;
@@ -102,10 +102,10 @@ public class Hoverer : MonoBehaviour
         Vector3 targetUp = Vector3.up;
         //rotation to get to target up direction
         Quaternion toGoal = Quaternion.FromToRotation(up, targetUp);
-        
+
         Vector3 rotAxis;
         float rotDegrees;
-        
+
         toGoal.ToAngleAxis(out rotDegrees, out rotAxis);
         rotAxis.Normalize();
 
