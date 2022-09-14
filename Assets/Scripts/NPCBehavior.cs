@@ -29,10 +29,17 @@ public class NPCBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(currentState == NPCState.Housed) gameObject.active = false;
         
     }
 
-    enum NPCState
+    // Setter for state
+    public void SetState(NPCState state)
+    {
+        currentState = state;
+    }
+
+    public enum NPCState
     {
         Waiting,
         Walking,

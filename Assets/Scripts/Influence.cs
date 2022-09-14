@@ -82,7 +82,16 @@ public class Influence : MonoBehaviour
         }
         */
 
+        foreach(NPCBehavior npc in influenced)
+        {
 
+            if(influenced.Count < 1) break;
+ 
+            float distance = Vector3.Distance(player.transform.position, npc.transform.position);
+
+            if(distance > influenceRadius) influenced.Remove(npc);
+            
+        }
 
 
     }

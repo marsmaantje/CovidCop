@@ -19,6 +19,10 @@ public class NPCManager : MonoBehaviour
     [SerializeField] private Transform spawnOrigin;
 
 
+
+    public Dictionary<NPCBehavior, Collider> npcColliders = new Dictionary<NPCBehavior, Collider>();
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +33,9 @@ public class NPCManager : MonoBehaviour
 
         for (int i = 0; i < InitialNPCSpawnCount; i++)
             spawnNPC();
+
+
+        
     }
 
     void spawnNPC()
@@ -36,6 +43,7 @@ public class NPCManager : MonoBehaviour
         Vector2 flatSpawnPos = Random.insideUnitCircle.normalized * Random.Range(spawnMinRadius, spawnMaxRadius);
         Vector3 spawnPos = new Vector3(flatSpawnPos.x, 0, flatSpawnPos.y) + spawnOrigin.position;
         NPCBehavior npc = Instantiate(prefab, spawnPos, Quaternion.identity);
+        npcColliders.Add(npc, npc.collider);
         NPCList.Add(npc);
 
     }
@@ -53,5 +61,16 @@ public class NPCManager : MonoBehaviour
         Gizmos.DrawWireSphere(spawnOrigin.position, spawnMinRadius);
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(spawnOrigin.position, spawnMaxRadius);
+    }
+
+    public NPCBehavior GetNPC(Collider collider)
+    {
+        foreach (KeyValuePair<NPCBehavior, Collider> entry in npcColliders)
+        {
+            if (entry.Value == collider)
+                return entry.Key;
+        }
+
+        return null;
     }
 }
