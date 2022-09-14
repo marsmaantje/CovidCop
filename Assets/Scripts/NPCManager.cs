@@ -19,6 +19,10 @@ public class NPCManager : MonoBehaviour
     [SerializeField] private Transform spawnOrigin;
 
 
+    [Range(0, 1)]
+    [SerializeField] private float infectedOnSpawnChance = 1f;
+
+
 
     public Dictionary<NPCBehavior, Collider> npcColliders = new Dictionary<NPCBehavior, Collider>();
 
@@ -35,7 +39,7 @@ public class NPCManager : MonoBehaviour
             spawnNPC();
 
 
-        
+
     }
 
     void spawnNPC()
@@ -45,6 +49,9 @@ public class NPCManager : MonoBehaviour
         NPCBehavior npc = Instantiate(prefab, spawnPos, Quaternion.identity);
         npcColliders.Add(npc, npc.collider);
         NPCList.Add(npc);
+
+        if (Random.value < infectedOnSpawnChance)
+            npc.infected = true;
 
     }
 

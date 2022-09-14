@@ -1,6 +1,8 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class House : MonoBehaviour
 {
@@ -16,8 +18,18 @@ public class House : MonoBehaviour
     [SerializeField] private float npcHouseCooldown = 2f;
 
 
+    [Range(0, 1)]
+    [SerializeField] private float infectChance = 1f;
+
+
+
+    [SerializeField] private bool isHospital = false;
+
+
     private List<NPCBehavior> housedNPCs = new List<NPCBehavior>();
 
+    public Action<NPCBehavior> OnNPCAdded;
+    public Action<NPCBehavior> OnNPCRemoved;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +43,13 @@ public class House : MonoBehaviour
 
     }
 
+    public List<NPCBehavior> getHousedNPCs()
+    {
+        return this.housedNPCs;
+    }
+
+
+
 
     // NPC collides with house
     private void OnTriggerEnter(Collider other)
@@ -39,14 +58,34 @@ public class House : MonoBehaviour
         {
             NPCBehavior npc = NPCManager.instance.GetNPC(other);
 
+
             if (housedNPCs.Count < houseCapacity && npc.getLastHousedTime() < Time.time - npcHouseCooldown)
             {
                 housedNPCs.Add(npc);
                 npc.SetState(NPCBehavior.NPCState.Housed);
 
-                Invoke("ReleaseNPC", Random.Range(minWaitTime, maxWaitTime));
+                if (!isHospital && npc.infected)
+                { // TODO: check for infection
+                    // TODO: infect every npc in the house
+                    // 
+
+
+                    foreach (NPCBehavior npcInHouse in housedNPCs)
+                    {
+                        if (UnityEngine.Random.Range(0f, 1f) < infectChance)
+                        {
+                            npcInHouse.infected = true;
+                        }
+                    }
+                }
+
+                Invoke("ReleaseNPC", UnityEngine.Random.Range(minWaitTime, maxWaitTime));
+                OnNPCAdded?.Invoke(npc);
             }
+
         }
+
+
     }
 
 
@@ -58,6 +97,11 @@ public class House : MonoBehaviour
         npc.setLastHousedTime(Time.time);
         npc.SetState(NPCBehavior.NPCState.Walking);
         npc.gameObject.SetActive(true);
+
+        if (isHospital) npc.infected = false;
+        
+
+        OnNPCRemoved?.Invoke(npc);
     }
 
 

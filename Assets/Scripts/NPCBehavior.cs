@@ -19,6 +19,8 @@ public class NPCBehavior : MonoBehaviour
     
     private float walkTime;
 
+    public bool infected = false;
+
 
     private float lastHousedTime = float.MinValue;
 
