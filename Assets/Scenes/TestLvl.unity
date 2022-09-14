@@ -606,6 +606,31 @@ PrefabInstance:
       propertyPath: m_NeverAutoSwitchControlSchemes
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3382229506982813295, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionId
+      value: 2aadd844-73cc-44c3-9d99-f44dee9d4337
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382229506982813295, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionName
+      value: Player/Pull[/Keyboard/e]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382229506982813295, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382229506982813295, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3382229506982813295, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6754510506793346777, guid: fe28ff35f66018b48b933506497f2d95,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -631,6 +656,11 @@ PrefabInstance:
       propertyPath: pivot
       value: 
       objectReference: {fileID: 447833013}
+    - target: {fileID: 7901444684079667997, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: RotationHandling
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8613529188289124120, guid: fe28ff35f66018b48b933506497f2d95,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

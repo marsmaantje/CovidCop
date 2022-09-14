@@ -33,9 +33,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Shoot",
+                    "name": "Pull",
                     "type": "Button",
-                    "id": "64d64a31-436e-448f-b150-c0435ee0c2ff",
+                    "id": "2aadd844-73cc-44c3-9d99-f44dee9d4337",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -155,23 +155,23 @@
                 },
                 {
                     "name": "",
-                    "id": "05eda320-19a1-4fd7-baaa-1f08ed17aca3",
-                    "path": "<Mouse>/leftButton",
+                    "id": "2f87eddc-6059-4aca-90db-9b18df29c31c",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
-                    "action": "Shoot",
+                    "action": "Pull",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "bb7ac4c4-2dc5-49c2-9bfc-2c33f4321db2",
-                    "path": "<Gamepad>/rightTrigger",
+                    "id": "f8a544fc-8f90-4012-ab34-31c861d67a1c",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Shoot",
+                    "action": "Pull",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

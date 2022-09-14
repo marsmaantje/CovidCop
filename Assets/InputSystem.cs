@@ -55,9 +55,9 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Shoot"",
+                    ""name"": ""Pull"",
                     ""type"": ""Button"",
-                    ""id"": ""64d64a31-436e-448f-b150-c0435ee0c2ff"",
+                    ""id"": ""2aadd844-73cc-44c3-9d99-f44dee9d4337"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -177,23 +177,23 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""05eda320-19a1-4fd7-baaa-1f08ed17aca3"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""2f87eddc-6059-4aca-90db-9b18df29c31c"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Shoot"",
+                    ""action"": ""Pull"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bb7ac4c4-2dc5-49c2-9bfc-2c33f4321db2"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""id"": ""f8a544fc-8f90-4012-ab34-31c861d67a1c"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Shoot"",
+                    ""action"": ""Pull"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -235,7 +235,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_View = m_Player.FindAction("View", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
-        m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
+        m_Player_Pull = m_Player.FindAction("Pull", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -298,7 +298,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_View;
     private readonly InputAction m_Player_Jump;
-    private readonly InputAction m_Player_Shoot;
+    private readonly InputAction m_Player_Pull;
     public struct PlayerActions
     {
         private @InputSystem m_Wrapper;
@@ -306,7 +306,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @View => m_Wrapper.m_Player_View;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
-        public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
+        public InputAction @Pull => m_Wrapper.m_Player_Pull;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -325,9 +325,9 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
-                @Shoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
-                @Shoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
+                @Pull.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPull;
+                @Pull.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPull;
+                @Pull.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPull;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -341,9 +341,9 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @Shoot.started += instance.OnShoot;
-                @Shoot.performed += instance.OnShoot;
-                @Shoot.canceled += instance.OnShoot;
+                @Pull.started += instance.OnPull;
+                @Pull.performed += instance.OnPull;
+                @Pull.canceled += instance.OnPull;
             }
         }
     }
@@ -371,6 +371,6 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnView(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnShoot(InputAction.CallbackContext context);
+        void OnPull(InputAction.CallbackContext context);
     }
 }
