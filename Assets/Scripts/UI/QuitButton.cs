@@ -11,5 +11,9 @@ public class QuitButton : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Game Quit");
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.ExitPlaymode();
+#endif
     }
 }
