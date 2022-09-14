@@ -12,8 +12,10 @@ public class NPCBehavior : MonoBehaviour
     [SerializeField] private float minWalkTime;
     [SerializeField] private float maxWalkTime;
     [SerializeField] private NPCState currentState = NPCState.Waiting;
+    public Rigidbody rigidbody;
 
     private float waitTime;
+    
     private float walkTime;
 
 

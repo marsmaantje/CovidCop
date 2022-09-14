@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Hoverer))]
+[RequireComponent(typeof(Rigidbody))]
 public class Movement : MonoBehaviour
 {
     #region publc variables
@@ -32,6 +33,7 @@ public class Movement : MonoBehaviour
     [Header("Rotation")]
     public float rotationSpeed = 2;
     public bool viewDesiredDirection = false;
+    public bool lookToVelocity = false;
     public AnimationCurve rotationSpeedFactorFromMagnitude;
     public AnimationCurve rotationDampingCurve;
 
