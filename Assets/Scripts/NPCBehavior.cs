@@ -33,8 +33,25 @@ public class NPCBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentState == NPCState.Housed) gameObject.active = false;
-        
+        switch (currentState)
+        {
+            case NPCState.Waiting:
+                
+                break;
+            case NPCState.Walking:
+                
+                break;
+            case NPCState.Housed:
+                gameObject.SetActive(false);
+                break;
+            case NPCState.Influenced:
+
+                break;
+            default:
+                Debug.LogError("NPCState not implemented");
+                break;
+        }
+
     }
 
     // Setter for state
