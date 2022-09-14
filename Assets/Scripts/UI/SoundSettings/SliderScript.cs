@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class SliderScript : MonoBehaviour
 {
-    [SerializeField]public Slider slider;
+    public Slider slider;
     public TextMeshProUGUI txt;
 
     void Start()

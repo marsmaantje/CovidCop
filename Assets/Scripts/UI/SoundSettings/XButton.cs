@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class XButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Canvas soundSettings;
 
-    // Update is called once per frame
-    void Update()
+    public void OnPressed()
     {
-        
+        soundSettings.enabled = false;
     }
 }
