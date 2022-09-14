@@ -227,6 +227,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1910520443136732422}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &335773928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8613529189831593205, guid: fe28ff35f66018b48b933506497f2d95,
+    type: 3}
+  m_PrefabInstance: {fileID: 2051009487}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &447833013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1566519247651288496, guid: 41b92739809fd4b4fa1d7939a5282328,
@@ -270,7 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1584196769699951305, guid: 94534c70587931a43bb85bfa8d3bb6ba, type: 3}
   <NPCList>k__BackingField: []
-  InitialNPCSpawnCount: 207
+  InitialNPCSpawnCount: 1
   spawnMinRadius: 11.83
   spawnMaxRadius: 28.24
   spawnOrigin: {fileID: 116286337}
@@ -589,6 +595,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2051009487}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1974701615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335773928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd6691ff7193e48974f0c02c7d139b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  influenceRadius: 10
+  player: {fileID: 335773928}
 --- !u!1001 &2051009487
 PrefabInstance:
   m_ObjectHideFlags: 0

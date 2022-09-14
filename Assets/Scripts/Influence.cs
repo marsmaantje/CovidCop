@@ -4,6 +4,7 @@ using UnityEngine;
 
 
 
+
 public class Influence : MonoBehaviour
 {
 
@@ -12,8 +13,8 @@ public class Influence : MonoBehaviour
     // Get player prefab
     public GameObject player;
 
-    private List<GameObject> npcs;
-    private List<GameObject> influenced = new List<GameObject>();
+    
+    private List<NPCBehavior> influenced = new List<NPCBehavior>();
 
 
 
@@ -21,19 +22,17 @@ public class Influence : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Find all NPC prefabs
-        npcs = new List<GameObject>(GameObject.FindGameObjectsWithTag("GameController"));
-
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
+        
         // Output distance between player and NPC prefab
-        Debug.Log("Amount of NPC in scene: " + npcs.Count);
-        foreach (GameObject npc in npcs)
+        Debug.Log("Amount of NPC in scene: " + NPCManager.instance.NPCList.Count);
+        foreach (NPCBehavior npc in NPCManager.instance.NPCList)
         {
             // Get index of NPC in npcs
 
@@ -50,7 +49,7 @@ public class Influence : MonoBehaviour
 
 
 
-            int index = npcs.IndexOf(npc);
+            int index = NPCManager.instance.NPCList.IndexOf(npc);
             Debug.Log("Index of NPC: " + index + " Distance to player: " + distance);
 
 
@@ -61,7 +60,7 @@ public class Influence : MonoBehaviour
 
 
 
-        foreach (GameObject npc in influenced)
+        foreach (NPCBehavior npc in influenced)
         {
 
 
@@ -74,7 +73,7 @@ public class Influence : MonoBehaviour
 
 
 
-
+            //Debug.Log(distance);
 
 
 
