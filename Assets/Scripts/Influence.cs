@@ -8,17 +8,13 @@ using UnityEngine.InputSystem;
 
 public class Influence : MonoBehaviour
 {
-
+    [SerializeField] private bool colliderBased = false;
     [SerializeField] private float influenceRadius = 10f;
 
-    // Get player prefab
-    public GameObject player;
+    [SerializeField]private List<NPCBehavior> influenced = new List<NPCBehavior>();
 
-
-    private List<NPCBehavior> influenced = new List<NPCBehavior>();
-
-    private bool isPushing = false;
-    private bool isPulling = false;
+    [SerializeField]private bool isPushing = false;
+    [SerializeField]private bool isPulling = false;
 
 
 
@@ -46,13 +42,35 @@ public class Influence : MonoBehaviour
     {
         if (isPushing || isPulling)
         {
-
-            foreach (NPCBehavior npc in NPCManager.instance.NPCList)
+            if (!colliderBased)
             {
-                if (GetNPCDistance(npc) < influenceRadius)
+                foreach (NPCBehavior npc in NPCManager.instance.NPCList)
                 {
+                    if (GetNPCDistance(npc) < influenceRadius)
+                    {
 
-                    Vector3 direction = player.transform.position - npc.transform.position;
+                        Vector3 direction = transform.position - npc.transform.position;
+
+                        direction.Normalize();
+
+                        //rotate direction to be relative to the npc
+                        direction = npc.transform.InverseTransformDirection(direction);
+
+                        npc.movement.DoMove(new Vector2(direction.x, direction.z) * (isPushing ? 1 : -1));
+                        npc.SetState(NPCBehavior.NPCState.Influenced);
+                    }
+                    else
+                    {
+                        npc.movement.DoMove(Vector2.zero);
+                        npc.StopInfluence();
+                    }
+                }
+            }
+            else
+            {
+                foreach (NPCBehavior npc in influenced)
+                {
+                    Vector3 direction = transform.position - npc.transform.position;
 
                     direction.Normalize();
 
@@ -61,43 +79,37 @@ public class Influence : MonoBehaviour
 
                     npc.movement.DoMove(new Vector2(direction.x, direction.z) * (isPushing ? 1 : -1));
                     npc.SetState(NPCBehavior.NPCState.Influenced);
-                }
-                else
-                {
-                    npc.movement.DoMove(Vector2.zero);
-                    npc.StopInfluence();
+
+                    if (GetNPCDistance(npc) > influenceRadius)
+                    {
+                        npc.movement.DoMove(Vector2.zero);
+                        npc.StopInfluence();
+                        influenced.Remove(npc);
+                    }
                 }
             }
         }
+    }
 
-        /*
-        // Output distance between player and NPC prefab
-        foreach (NPCBehavior npc in NPCManager.instance.NPCList)
+    private void OnTriggerEnter(Collider other)
+    {
+        NPCBehavior npc = NPCManager.instance.GetNPC(other);
+        if (npc != null)
+            influenced.Add(npc);
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        NPCBehavior npc = NPCManager.instance.GetNPC(other);
+        if (npc != null)
         {
-            // Get index of NPC in npcs
-
-            float distance = Vector3.Distance(player.transform.position, npc.transform.position);
-
-            if (distance < influenceRadius) influenced.Add(npc);
+            influenced.Remove(npc);
+            npc.StopInfluence();
         }
-        */
-
-        foreach(NPCBehavior npc in influenced)
-        {
-
-            if(influenced.Count < 1) break;
- 
-            float distance = Vector3.Distance(player.transform.position, npc.transform.position);
-
-            if(distance > influenceRadius) influenced.Remove(npc);
-            
-        }
-
-
     }
 
     private float GetNPCDistance(NPCBehavior npc)
     {
-        return Vector3.Distance(player.transform.position, npc.transform.position);
+        return Vector3.Distance(transform.position, npc.transform.position);
     }
 }

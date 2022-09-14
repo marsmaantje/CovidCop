@@ -30,7 +30,6 @@ public class NPCBehavior : MonoBehaviour
     public bool infected = false;
     bool pInfected = false;
 
-
     private float lastHousedTime = float.MinValue;
 
     // Start is called before the first frame update
@@ -150,7 +149,11 @@ public class NPCBehavior : MonoBehaviour
     // Setter for state
     public void SetState(NPCState state)
     {
-        currentState = state;
+        if (gameObject.activeSelf)
+        {
+            currentState = state;
+            OnStateChange(previousState, currentState);
+        }
     }
 
     public float getLastHousedTime() {

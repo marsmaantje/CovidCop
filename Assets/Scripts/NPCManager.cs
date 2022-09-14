@@ -11,7 +11,7 @@ public class NPCManager : MonoBehaviour
 
     [field: SerializeField]
     public List<Transform> GatheringPoints { get; private set; } = new List<Transform>();
-    
+
 
     [SerializeField] public int InitialNPCSpawnCount;
 
@@ -28,7 +28,7 @@ public class NPCManager : MonoBehaviour
 
 
 
-    public Dictionary<NPCBehavior, Collider> npcColliders = new Dictionary<NPCBehavior, Collider>();
+    public Dictionary<Collider, NPCBehavior> npcColliders = new Dictionary<Collider, NPCBehavior>();
 
 
     // Start is called before the first frame update
@@ -51,7 +51,7 @@ public class NPCManager : MonoBehaviour
         Vector2 flatSpawnPos = Random.insideUnitCircle.normalized * Random.Range(spawnMinRadius, spawnMaxRadius);
         Vector3 spawnPos = new Vector3(flatSpawnPos.x, 0, flatSpawnPos.y) + spawnOrigin.position;
         NPCBehavior npc = Instantiate(prefab, spawnPos, Quaternion.identity);
-        npcColliders.Add(npc, npc.collider);
+        npcColliders.Add(npc.collider, npc);
         NPCList.Add(npc);
 
         if (Random.value < infectedOnSpawnChance)
@@ -88,11 +88,8 @@ public class NPCManager : MonoBehaviour
 
     public NPCBehavior GetNPC(Collider collider)
     {
-        foreach (KeyValuePair<NPCBehavior, Collider> entry in npcColliders)
-        {
-            if (entry.Value == collider)
-                return entry.Key;
-        }
+        if (npcColliders.ContainsKey(collider))
+            return npcColliders.GetValueOrDefault(collider);
 
         return null;
     }
