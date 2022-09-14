@@ -460,7 +460,7 @@ MonoBehaviour:
   spawnMinRadius: 11.83
   spawnMaxRadius: 28.24
   spawnOrigin: {fileID: 116286337}
-  infectedOnSpawnChance: 1
+  infectedOnSpawnChance: 0.245
 --- !u!4 &591448781
 Transform:
   m_ObjectHideFlags: 0

@@ -252,8 +252,15 @@ MonoBehaviour:
   maxWaitTime: 3
   minWalkTime: 5
   maxWalkTime: 10
-  maxWalkTargetDistance: 1
+  maxWalkTargetDistance: 5.77
   currentState: 0
   rigidbody: {fileID: 4535677387971244677}
   collider: {fileID: 4535677387971244676}
+  renderer: {fileID: 4535677388578384242}
   infected: 0
+--- !u!23 &4535677388578384242 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2447189044557235997, guid: 9dbd30fec0bfa5548821e17f87054a31,
+    type: 3}
+  m_PrefabInstance: {fileID: 2236001986240818799}
+  m_PrefabAsset: {fileID: 0}

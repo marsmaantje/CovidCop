@@ -24,7 +24,11 @@ public class NPCBehavior : MonoBehaviour
     private float walkTimeStart;
     private Transform walkTarget;
 
+    public MaterialPropertyBlock materialPropertyBlock;
+    public Renderer renderer;
+
     public bool infected = false;
+    bool pInfected = false;
 
 
     private float lastHousedTime = float.MinValue;
@@ -32,12 +36,20 @@ public class NPCBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        materialPropertyBlock = new MaterialPropertyBlock();
+        renderer.SetPropertyBlock(materialPropertyBlock);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(infected != pInfected)
+        {
+            materialPropertyBlock.SetColor("_BaseColor", infected ? Color.green : Color.blue);
+            renderer.SetPropertyBlock(materialPropertyBlock);
+            pInfected = infected;
+        }
+        
         if(currentState != previousState)
             OnStateChange(previousState, currentState);
         previousState = currentState;
