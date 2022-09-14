@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SoundSetings : MonoBehaviour
+public class OpenOverlay: MonoBehaviour
 {
     public Canvas soundSettings;
 
