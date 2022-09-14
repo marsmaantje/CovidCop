@@ -10,6 +10,6 @@ public class QuitButton : MonoBehaviour
     public void OnPressed()
     {
         Application.Quit();
-        Debug.Log("Quit");
+        Debug.Log("Game Quit");
     }
 }
