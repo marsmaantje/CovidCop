@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 
@@ -13,7 +14,7 @@ public class Influence : MonoBehaviour
     // Get player prefab
     public GameObject player;
 
-    
+
     private List<NPCBehavior> influenced = new List<NPCBehavior>();
 
 
@@ -24,12 +25,42 @@ public class Influence : MonoBehaviour
     {
     }
 
+
+    public void OnPush(InputAction.CallbackContext context)
+    {
+        foreach (NPCBehavior npc in influenced)
+        {
+            Vector3 direction = player.transform.position - npc.transform.position;
+
+            direction.Normalize();
+
+
+            npc.movement.DoMove(new Vector2(direction.x, direction.z));
+        }
+    }
+
+    public void OnPull(InputAction.CallbackContext context)
+    {
+
+        foreach (NPCBehavior npc in influenced)
+        {
+            Vector3 direction = player.transform.position - npc.transform.position;
+
+            direction.Normalize();
+
+            direction = -direction;
+            npc.movement.DoMove(new Vector2(direction.x, direction.z));
+        }
+
+
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
 
-        
+
+
         // Output distance between player and NPC prefab
         Debug.Log("Amount of NPC in scene: " + NPCManager.instance.NPCList.Count);
         foreach (NPCBehavior npc in NPCManager.instance.NPCList)
@@ -38,73 +69,13 @@ public class Influence : MonoBehaviour
 
             float distance = Vector3.Distance(player.transform.position, npc.transform.position);
 
-
-
-            if (distance < influenceRadius)
-            {
-                influenced.Add(npc);
-            }
-
-
-
-
-
+            if (distance < influenceRadius) influenced.Add(npc);
+            
             int index = NPCManager.instance.NPCList.IndexOf(npc);
             Debug.Log("Index of NPC: " + index + " Distance to player: " + distance);
-
-
-
-
         }
 
 
-
-
-        foreach (NPCBehavior npc in influenced)
-        {
-
-
-
-            Vector3 direction = player.transform.position - npc.transform.position;
-
-            direction.Normalize();
-
-            float distance = Vector3.Distance(player.transform.position, npc.transform.position);
-
-
-
-            //Debug.Log(distance);
-
-
-
-            // Move NPC smoothly
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                npc.transform.rotation = Quaternion.Slerp(npc.transform.rotation, Quaternion.LookRotation(direction), 0.1f);
-                npc.GetComponent<Rigidbody>().velocity = direction * 2;
-
-            }
-            else if (Input.GetKeyDown(KeyCode.Q))
-            {
-
-                direction = -direction;
-                npc.transform.rotation = Quaternion.Slerp(npc.transform.rotation, Quaternion.LookRotation(direction), 0.1f);
-                npc.GetComponent<Rigidbody>().velocity = direction * 2;
-            }
-
-            if (distance > influenceRadius)
-            {
-                npc.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                influenced.Remove(npc);
-            }
-
-            if (distance < 2)
-            {
-                npc.GetComponent<Rigidbody>().velocity = Vector3.zero;
-
-            }
-        }
 
 
     }

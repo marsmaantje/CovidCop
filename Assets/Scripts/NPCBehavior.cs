@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class NPCBehavior : MonoBehaviour
 {
-    [SerializeField] private Movement movement;
+    [SerializeField] public Movement movement;
 
     [SerializeField] private float minWaitTime;
     [SerializeField] private float maxWaitTime;
