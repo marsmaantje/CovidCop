@@ -20,6 +20,8 @@ public class NPCBehavior : MonoBehaviour
     private float walkTime;
 
 
+    private float lastHousedTime = float.MinValue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,14 @@ public class NPCBehavior : MonoBehaviour
         currentState = state;
     }
 
+    public float getLastHousedTime() {
+        return this.lastHousedTime;
+    }
+
+    public void setLastHousedTime(float time) {
+        this.lastHousedTime = time;
+    }
+
     public enum NPCState
     {
         Waiting,
@@ -46,4 +56,7 @@ public class NPCBehavior : MonoBehaviour
         Influenced,
         Housed
     }
+
+
+    
 }
