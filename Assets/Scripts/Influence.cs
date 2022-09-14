@@ -17,6 +17,9 @@ public class Influence : MonoBehaviour
 
     private List<NPCBehavior> influenced = new List<NPCBehavior>();
 
+    private bool isPushing = false;
+    private bool isPulling = false;
+
 
 
 
@@ -28,41 +31,47 @@ public class Influence : MonoBehaviour
 
     public void OnPush(InputAction.CallbackContext context)
     {
-        foreach (NPCBehavior npc in influenced)
-        {
-            Vector3 direction = player.transform.position - npc.transform.position;
-
-            direction.Normalize();
-
-
-            npc.movement.DoMove(new Vector2(direction.x, direction.z));
-        }
+        isPushing = true;
+        isPulling = false;
     }
 
     public void OnPull(InputAction.CallbackContext context)
     {
-
-        foreach (NPCBehavior npc in influenced)
-        {
-            Vector3 direction = player.transform.position - npc.transform.position;
-
-            direction.Normalize();
-
-            direction = -direction;
-            npc.movement.DoMove(new Vector2(direction.x, direction.z));
-        }
-
-
+        isPulling = true;
+        isPushing = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isPushing || isPulling)
+        {
 
+            foreach (NPCBehavior npc in NPCManager.instance.NPCList)
+            {
+                if (GetNPCDistance(npc) < influenceRadius)
+                {
 
+                    Vector3 direction = player.transform.position - npc.transform.position;
 
+                    direction.Normalize();
+
+                    //rotate direction to be relative to the npc
+                    direction = npc.transform.InverseTransformDirection(direction);
+
+                    npc.movement.DoMove(new Vector2(direction.x, direction.z) * (isPushing ? 1 : -1));
+                }
+                else
+                {
+                    {
+                        npc.movement.DoMove(Vector2.zero);
+                    }
+                }
+            }
+        }
+
+        /*
         // Output distance between player and NPC prefab
-        Debug.Log("Amount of NPC in scene: " + NPCManager.instance.NPCList.Count);
         foreach (NPCBehavior npc in NPCManager.instance.NPCList)
         {
             // Get index of NPC in npcs
@@ -70,13 +79,16 @@ public class Influence : MonoBehaviour
             float distance = Vector3.Distance(player.transform.position, npc.transform.position);
 
             if (distance < influenceRadius) influenced.Add(npc);
-            
-            int index = NPCManager.instance.NPCList.IndexOf(npc);
-            Debug.Log("Index of NPC: " + index + " Distance to player: " + distance);
         }
+        */
 
 
 
 
+    }
+
+    private float GetNPCDistance(NPCBehavior npc)
+    {
+        return Vector3.Distance(player.transform.position, npc.transform.position);
     }
 }

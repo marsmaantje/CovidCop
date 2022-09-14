@@ -276,7 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1584196769699951305, guid: 94534c70587931a43bb85bfa8d3bb6ba, type: 3}
   <NPCList>k__BackingField: []
-  InitialNPCSpawnCount: 1
+  InitialNPCSpawnCount: 105
   spawnMinRadius: 11.83
   spawnMaxRadius: 28.24
   spawnOrigin: {fileID: 116286337}
