@@ -207,6 +207,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2236001986240818799}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &4535677387971244676 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 2447189043151084779, guid: 9dbd30fec0bfa5548821e17f87054a31,
+    type: 3}
+  m_PrefabInstance: {fileID: 2236001986240818799}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &4535677387971244677 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 2447189043151084778, guid: 9dbd30fec0bfa5548821e17f87054a31,
@@ -238,3 +244,4 @@ MonoBehaviour:
   maxWalkTime: 0
   currentState: 0
   rigidbody: {fileID: 4535677387971244677}
+  collider: {fileID: 4535677387971244676}

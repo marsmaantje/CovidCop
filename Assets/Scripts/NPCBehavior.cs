@@ -13,6 +13,7 @@ public class NPCBehavior : MonoBehaviour
     [SerializeField] private float maxWalkTime;
     [SerializeField] private NPCState currentState = NPCState.Waiting;
     public Rigidbody rigidbody;
+    public Collider collider;
 
     private float waitTime;
     
