@@ -32,9 +32,8 @@ public class Movement : MonoBehaviour
 
     [Header("Rotation")]
     public float rotationSpeed = 2;
-    public bool viewDesiredDirection = false;
-    public bool lookToVelocity = false;
     [SerializeField] private lookState RotationHandling = lookState.Rotate;
+    public float minimumMovementSpeed = 1;
     public AnimationCurve rotationSpeedFactorFromMagnitude;
     public AnimationCurve rotationDampingCurve;
 
@@ -138,7 +137,7 @@ public class Movement : MonoBehaviour
             case (lookState.LookTowardsVelocity):
 
                 //only update rotation if velocity is high enough
-                if (rb.velocity.magnitude > 0.1f)
+                if (rb.velocity.magnitude > minimumMovementSpeed)
                 {
                     //get the direction the player is moving in
                     Vector3 velDir = rb.velocity.normalized;
