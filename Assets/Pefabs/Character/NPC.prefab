@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2447189043151084778, guid: 9dbd30fec0bfa5548821e17f87054a31,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2447189043151084782, guid: 9dbd30fec0bfa5548821e17f87054a31,
         type: 3}
       propertyPath: m_RootOrder
@@ -80,7 +85,7 @@ PrefabInstance:
     - target: {fileID: 4312438823521274648, guid: 9dbd30fec0bfa5548821e17f87054a31,
         type: 3}
       propertyPath: rotationSpeed
-      value: 350
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4312438823521274648, guid: 9dbd30fec0bfa5548821e17f87054a31,
         type: 3}
@@ -243,10 +248,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 2656846391118488951}
-  minWaitTime: 0
-  maxWaitTime: 0
-  minWalkTime: 0
-  maxWalkTime: 0
+  minWaitTime: 1
+  maxWaitTime: 3
+  minWalkTime: 5
+  maxWalkTime: 10
+  maxWalkTargetDistance: 1
   currentState: 0
   rigidbody: {fileID: 4535677387971244677}
   collider: {fileID: 4535677387971244676}
+  infected: 0

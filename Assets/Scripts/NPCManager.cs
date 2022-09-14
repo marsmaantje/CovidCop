@@ -9,6 +9,10 @@ public class NPCManager : MonoBehaviour
     [field: SerializeField]
     public List<NPCBehavior> NPCList { get; private set; }
 
+    [field: SerializeField]
+    public List<Transform> GatheringPoints { get; private set; } = new List<Transform>();
+    
+
     [SerializeField] public int InitialNPCSpawnCount;
 
     public static NPCManager instance;
@@ -68,6 +72,13 @@ public class NPCManager : MonoBehaviour
         Gizmos.DrawWireSphere(spawnOrigin.position, spawnMinRadius);
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(spawnOrigin.position, spawnMaxRadius);
+
+        Gizmos.color = Color.blue;
+        foreach (Transform t in GatheringPoints)
+        {
+            Gizmos.DrawSphere(t.position, 1);
+        }
+        
     }
 
     public NPCBehavior GetNPC(Collider collider)
