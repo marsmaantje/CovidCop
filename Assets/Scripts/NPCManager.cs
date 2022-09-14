@@ -65,20 +65,25 @@ public class NPCManager : MonoBehaviour
 
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        if (spawnOrigin != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(spawnOrigin.position, spawnMinRadius);
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(spawnOrigin.position, spawnMaxRadius);
+        }
+    }
+
     //on draw gizmo, draw spawn radius
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(spawnOrigin.position, spawnMinRadius);
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(spawnOrigin.position, spawnMaxRadius);
-
         Gizmos.color = Color.blue;
         foreach (Transform t in GatheringPoints)
         {
             Gizmos.DrawSphere(t.position, 1);
         }
-        
     }
 
     public NPCBehavior GetNPC(Collider collider)

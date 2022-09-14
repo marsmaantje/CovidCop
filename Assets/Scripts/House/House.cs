@@ -57,7 +57,7 @@ public class House : MonoBehaviour
         if (other.gameObject.CompareTag("NPC"))
         {
             NPCBehavior npc = NPCManager.instance.GetNPC(other);
-
+            Debug.Log("NPC entered house " + this.GetInstanceID());
 
             if (housedNPCs.Count < houseCapacity && npc.getLastHousedTime() < Time.time - npcHouseCooldown)
             {
@@ -65,11 +65,7 @@ public class House : MonoBehaviour
                 npc.SetState(NPCBehavior.NPCState.Housed);
 
                 if (!isHospital && npc.infected)
-                { // TODO: check for infection
-                    // TODO: infect every npc in the house
-                    // 
-
-
+                { 
                     foreach (NPCBehavior npcInHouse in housedNPCs)
                     {
                         if (UnityEngine.Random.Range(0f, 1f) < infectChance)

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(NPCManager))]
-public class NPCManagaerextension : Editor
+public class NPCManagerextension : Editor
 {
     public override void OnInspectorGUI()
     {
@@ -16,8 +16,11 @@ public class NPCManagaerextension : Editor
             //loop over all children of the gameobject
             foreach (Transform child in myScript.transform)
             {
+                if (!myScript.GatheringPoints.Contains(child))
+                {
+                    myScript.GatheringPoints.Add(child);
+                }
                 //add the child to the list of gathering points
-                myScript.GatheringPoints.Add(child);
             }
         }
     }

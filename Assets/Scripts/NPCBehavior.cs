@@ -127,7 +127,7 @@ public class NPCBehavior : MonoBehaviour
 
                 break;
             case NPCState.Housed:
-                
+                gameObject.SetActive(false);
                 break;
             case NPCState.Influenced:
                 
