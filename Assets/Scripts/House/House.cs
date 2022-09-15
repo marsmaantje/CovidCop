@@ -47,14 +47,15 @@ public class House : MonoBehaviour
         if (other.gameObject.CompareTag("NPC"))
         {
             NPCBehavior npc = NPCManager.instance.GetNPC(other);
-            Debug.Log("trying to add npc");
+
             if (housedNPCs.Count < houseCapacity && npc.getLastHousedTime() < Time.time - npcHouseCooldown)
             {
-                housedNPCs.Add(npc);
-                npc.SetState(NPCBehavior.NPCState.Housed);
-
                 if (!isHospital)
-                {
+                { //normal house
+                    housedNPCs.Add(npc);
+                    npc.SetState(NPCBehavior.NPCState.Housed);
+
+
                     if (npc.infected)
                     {
                         foreach (NPCBehavior npcInHouse in housedNPCs)
@@ -75,18 +76,22 @@ public class House : MonoBehaviour
                             }
                         }
                     }
+                    Invoke("ReleaseNPC", UnityEngine.Random.Range(minWaitTime, maxWaitTime));
+                    OnNPCAdded?.Invoke(npc);
                 }
-
-                Invoke("ReleaseNPC", UnityEngine.Random.Range(minWaitTime, maxWaitTime));
-                OnNPCAdded?.Invoke(npc);
-            }
-            else
-            {
-                Debug.Log("npc not housed");
+                else
+                { //hospital should only accept infected people
+                    if (npc.infected)
+                    {
+                        housedNPCs.Add(npc);
+                        npc.SetState(NPCBehavior.NPCState.Housed);
+                        Invoke("ReleaseNPC", UnityEngine.Random.Range(minWaitTime, maxWaitTime));
+                        OnNPCAdded?.Invoke(npc);
+                    }
+                }
             }
         }
     }
-
 
     private void ReleaseNPC()
     {
