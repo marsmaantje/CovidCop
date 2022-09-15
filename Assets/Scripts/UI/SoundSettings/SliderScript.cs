@@ -9,10 +9,6 @@ public class SliderScript : MonoBehaviour
     public Slider slider;
     public TextMeshProUGUI txt;
 
-    void Start()
-    {
-    }
-
     
     void Update()
     {
