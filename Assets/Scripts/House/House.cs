@@ -34,6 +34,13 @@ public class House : MonoBehaviour
     }
 
 
+    void Start()
+    {
+        HouseManager.instance.houses.Add(this);
+        Debug.Log("House added to HouseManager: " + this.name);
+    }
+
+
     // NPC collides with house
     private void OnTriggerEnter(Collider other)
     {

@@ -169,7 +169,8 @@ public class NPCBehavior : MonoBehaviour
         Waiting,
         Walking,
         Influenced,
-        Housed
+        Housed,
+        Lockdown
     }
 
 
