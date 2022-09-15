@@ -19,7 +19,7 @@ public class NPCBehavior : MonoBehaviour
 
     private float waitTime;
     private float waitStart;
-    
+
     private float walkTimeLimit;
     private float walkTimeStart;
     private Transform walkTarget;
@@ -42,14 +42,14 @@ public class NPCBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(infected != pInfected)
+        if (infected != pInfected)
         {
             materialPropertyBlock.SetColor("_BaseColor", infected ? Color.green : Color.blue);
             renderer.SetPropertyBlock(materialPropertyBlock);
             pInfected = infected;
         }
-        
-        if(currentState != previousState)
+
+        if (currentState != previousState)
             OnStateChange(previousState, currentState);
         previousState = currentState;
 
@@ -81,6 +81,9 @@ public class NPCBehavior : MonoBehaviour
             case NPCState.Influenced:
 
                 break;
+            case NPCState.Lockdown:
+                
+                break;
             default:
                 Debug.LogError("NPCState not implemented");
                 break;
@@ -90,7 +93,7 @@ public class NPCBehavior : MonoBehaviour
 
     void OnStateChange(NPCState oldState, NPCState newState)
     {
-        switch(newState)
+        switch (newState)
         {
             case NPCState.Walking:
                 walkTimeLimit = Random.Range(minWalkTime, maxWalkTime);
@@ -129,18 +132,20 @@ public class NPCBehavior : MonoBehaviour
                 gameObject.SetActive(false);
                 break;
             case NPCState.Influenced:
-                
+
+                break;
+            case NPCState.Lockdown:
                 break;
             default:
                 Debug.LogError("NPCState not implemented");
-                
+
                 break;
         }
     }
 
     public void StopInfluence()
     {
-        if(currentState == NPCState.Influenced)
+        if (currentState == NPCState.Influenced)
         {
             currentState = NPCState.Waiting;
         }
@@ -156,11 +161,13 @@ public class NPCBehavior : MonoBehaviour
         }
     }
 
-    public float getLastHousedTime() {
+    public float getLastHousedTime()
+    {
         return this.lastHousedTime;
     }
 
-    public void setLastHousedTime(float time) {
+    public void setLastHousedTime(float time)
+    {
         this.lastHousedTime = time;
     }
 
@@ -174,5 +181,5 @@ public class NPCBehavior : MonoBehaviour
     }
 
 
-    
+
 }
