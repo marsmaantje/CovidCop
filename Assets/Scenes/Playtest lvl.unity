@@ -899,12 +899,12 @@ PrefabInstance:
     - target: {fileID: 1566519247651288496, guid: 41b92739809fd4b4fa1d7939a5282328,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 3e-45
+      value: -3e-45
       objectReference: {fileID: 0}
     - target: {fileID: 1566519247651288496, guid: 41b92739809fd4b4fa1d7939a5282328,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1e-45
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 1566519247651288496, guid: 41b92739809fd4b4fa1d7939a5282328,
         type: 3}
@@ -1362,11 +1362,76 @@ PrefabInstance:
       propertyPath: m_ScaleMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2288352572243906361, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: m_FadeFactor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203165739545029447, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: isPulling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203165739545029447, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: EffectSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203165739545029447, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: pullColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203165739545029447, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: pullColor.b
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203165739545029447, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: pullColor.g
+      value: 2.9176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203165739545029447, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: pullColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203165739545029447, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: pushColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203165739545029447, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: pushColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203165739545029447, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: pushColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203165739545029447, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: pushColor.r
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3203165739545029447, guid: fe28ff35f66018b48b933506497f2d95,
         type: 3}
       propertyPath: colliderBased
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3203165739545029447, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: influenceRadius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203165739545029447, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: InfluenceEffectMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 587e58b930bce8e4caa1a12f63db448a, type: 2}
     - target: {fileID: 3382229506982813295, guid: fe28ff35f66018b48b933506497f2d95,
         type: 3}
       propertyPath: m_Camera
@@ -1505,22 +1570,22 @@ PrefabInstance:
     - target: {fileID: 7778244345323079942, guid: fe28ff35f66018b48b933506497f2d95,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7778244345323079942, guid: fe28ff35f66018b48b933506497f2d95,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7778244345323079942, guid: fe28ff35f66018b48b933506497f2d95,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7778244345323079942, guid: fe28ff35f66018b48b933506497f2d95,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.01
+      value: 5.91
       objectReference: {fileID: 0}
     - target: {fileID: 7778244345323079942, guid: fe28ff35f66018b48b933506497f2d95,
         type: 3}
@@ -1540,12 +1605,12 @@ PrefabInstance:
     - target: {fileID: 7901444684079667997, guid: fe28ff35f66018b48b933506497f2d95,
         type: 3}
       propertyPath: rotationSpeed
-      value: 120
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 7901444684079667997, guid: fe28ff35f66018b48b933506497f2d95,
         type: 3}
       propertyPath: RotationHandling
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8613529188289124120, guid: fe28ff35f66018b48b933506497f2d95,
         type: 3}
@@ -1661,6 +1726,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AngularDrag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613529189831593199, guid: fe28ff35f66018b48b933506497f2d95,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8613529189831593205, guid: fe28ff35f66018b48b933506497f2d95,
         type: 3}

@@ -15,9 +15,9 @@ MonoBehaviour:
   m_Active: 1
   settings:
     passTag: NormalTransparent
-    Event: 300
+    Event: 500
     filterSettings:
-      RenderQueueType: 0
+      RenderQueueType: 1
       LayerMask:
         serializedVersion: 2
         m_Bits: 64
@@ -78,13 +78,13 @@ MonoBehaviour:
     debugReplacementPS: {fileID: 4800000, guid: cf852408f2e174538bcd9b7fda1c5ae7,
       type: 3}
   m_RendererFeatures:
+  - {fileID: 2905280557710154648}
   - {fileID: -1878332245247344467}
   - {fileID: 7401126748363547465}
   - {fileID: 645060798166501168}
   - {fileID: 3926109354772553622}
   - {fileID: -1909037086323200766}
-  - {fileID: 2905280557710154648}
-  m_RendererFeatureMap: adc0de57c6d2eee549e3d9959015b66630873ed560b7f308965f8e20a8577c3602ada86ee2bc81e5989b293f46a15128
+  m_RendererFeatureMap: 989b293f46a15128adc0de57c6d2eee549e3d9959015b66630873ed560b7f308965f8e20a8577c3602ada86ee2bc81e5
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
