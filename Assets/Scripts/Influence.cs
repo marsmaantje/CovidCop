@@ -81,13 +81,14 @@ public class Influence : MonoBehaviour
                     npc.movement.DoMove(new Vector2(direction.x, direction.z) * (isPushing ? 1 : -1));
                     npc.SetState(NPCBehavior.NPCState.Influenced);
 
-
+                    /*
                     if (GetNPCDistance(npc) > influenceRadius)
                     {
                         npc.movement.DoMove(Vector2.zero);
                         npc.StopInfluence();
                         toRemove.Add(npc);
                     }
+                    */
                 }
                 foreach (NPCBehavior nPC in toRemove)
                 {
