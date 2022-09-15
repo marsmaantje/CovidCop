@@ -67,7 +67,8 @@ public class Influence : MonoBehaviour
                 }
             }
             else
-            {
+            { //use the collider for npc management
+                List<NPCBehavior> toRemove = new List<NPCBehavior>();
                 foreach (NPCBehavior npc in influenced)
                 {
                     Vector3 direction = transform.position - npc.transform.position;
@@ -80,12 +81,17 @@ public class Influence : MonoBehaviour
                     npc.movement.DoMove(new Vector2(direction.x, direction.z) * (isPushing ? 1 : -1));
                     npc.SetState(NPCBehavior.NPCState.Influenced);
 
+
                     if (GetNPCDistance(npc) > influenceRadius)
                     {
                         npc.movement.DoMove(Vector2.zero);
                         npc.StopInfluence();
-                        influenced.Remove(npc);
+                        toRemove.Add(npc);
                     }
+                }
+                foreach (NPCBehavior nPC in toRemove)
+                {
+                    influenced.Remove(nPC);
                 }
             }
         }
@@ -94,14 +100,14 @@ public class Influence : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         NPCBehavior npc = NPCManager.instance.GetNPC(other);
-        if (npc != null)
+        if (npc != null && !influenced.Contains(npc))
             influenced.Add(npc);
     }
     
     private void OnTriggerExit(Collider other)
     {
         NPCBehavior npc = NPCManager.instance.GetNPC(other);
-        if (npc != null)
+        if (npc != null && influenced.Contains(npc))
         {
             influenced.Remove(npc);
             npc.StopInfluence();
