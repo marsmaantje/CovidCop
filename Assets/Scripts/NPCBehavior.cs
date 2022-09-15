@@ -151,6 +151,12 @@ public class NPCBehavior : MonoBehaviour
         }
     }
 
+    public void StopLockdown() {
+        if(currentState == NPCState.Lockdown) {
+            currentState = NPCState.Waiting;
+        }
+    }
+
     // Setter for state
     public void SetState(NPCState state)
     {

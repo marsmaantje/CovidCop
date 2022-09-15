@@ -6,44 +6,40 @@ using UnityEngine.InputSystem;
 public class PlayerAbilities : MonoBehaviour
 {
 
+    private bool isLockdown = false;
 
-    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void OnLockdown(InputAction.CallbackContext context)
     {
 
-        
-
-        if (context.performed)
+        NPCManager.instance.NPCList.ForEach(npc =>
         {
-            NPCManager.instance.NPCList.ForEach(npc => {
-                npc.SetState(NPCBehavior.NPCState.Lockdown);
-                Vector2 direction = new Vector2(
-                    npc.transform.position.x - HouseManager.instance.houses[0].transform.position.x, 
-                    npc.transform.position.z - HouseManager.instance.houses[0].transform.position.z);
-                
-                direction.Normalize();
+            npc.SetState(NPCBehavior.NPCState.Lockdown);
+            Vector3 direction = npc.transform.position - HouseManager.instance.houses[0].transform.position;
 
-                direction = npc.transform.InverseTransformDirection(direction);
 
-                
-                Debug.Log(direction);
-                npc.movement.DoMove(direction);
-                // move npc to nearest house
-            });
-        }
+            direction.Normalize();
+
+            direction = npc.transform.InverseTransformDirection(direction);
+
+
+            Debug.Log(direction);
+            npc.movement.DoMove(new Vector2(direction.x, direction.z) * 2);
+            // move npc to nearest house
+        });
+
     }
 }

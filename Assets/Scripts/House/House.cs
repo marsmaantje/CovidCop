@@ -22,6 +22,8 @@ public class House : MonoBehaviour
 
     [SerializeField] private bool isHospital = false;
 
+    [SerializeField] private HouseManager houseManager;
+
 
     private List<NPCBehavior> housedNPCs = new List<NPCBehavior>();
 
@@ -36,7 +38,10 @@ public class House : MonoBehaviour
 
     void Start()
     {
-        HouseManager.instance.houses.Add(this);
+
+        houseManager = FindObjectOfType<HouseManager>();
+
+        houseManager.houses.Add(this);
         Debug.Log("House added to HouseManager: " + this.name);
     }
 
