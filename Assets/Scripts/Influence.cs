@@ -9,13 +9,20 @@ using UnityEngine.InputSystem;
 public class Influence : MonoBehaviour
 {
     [SerializeField] private bool colliderBased = false;
+    [SerializeField] new private Collider collider;
     [SerializeField] private float influenceRadius = 10f;
 
-    [SerializeField]private List<NPCBehavior> influenced = new List<NPCBehavior>();
+    [SerializeField] private List<NPCBehavior> influenced = new List<NPCBehavior>();
 
-    [SerializeField]private bool isPushing = false;
-    [SerializeField]private bool isPulling = false;
-
+    [SerializeField] private bool isPushing = false;
+    [SerializeField] private bool isPulling = false;
+    [SerializeField] private Material InfluenceEffectMaterial;
+    [ColorUsage(true, true)]
+    [SerializeField] private Color pushColor = Color.red;
+    [ColorUsage(true, true)]
+    [SerializeField] private Color pullColor = Color.blue;
+    [SerializeField] private float EffectSpeed = 1;
+    
 
 
 
@@ -29,12 +36,16 @@ public class Influence : MonoBehaviour
     {
         isPushing = true;
         isPulling = false;
+        InfluenceEffectMaterial.SetColor("_CircleColor", pushColor);
+        InfluenceEffectMaterial.SetFloat("_Speed", EffectSpeed);
     }
 
     public void OnPull(InputAction.CallbackContext context)
     {
         isPulling = true;
         isPushing = false;
+        InfluenceEffectMaterial.SetColor("_CircleColor", pullColor);
+        InfluenceEffectMaterial.SetFloat("_Speed", -EffectSpeed);
     }
 
     // Update is called once per frame
@@ -81,17 +92,17 @@ public class Influence : MonoBehaviour
                     npc.movement.DoMove(new Vector2(direction.x, direction.z) * (isPushing ? 1 : -1));
                     npc.SetState(NPCBehavior.NPCState.Influenced);
 
-
-                    if (GetNPCDistance(npc) > influenceRadius)
+                    if(!npc.gameObject.activeSelf)
                     {
-                        npc.movement.DoMove(Vector2.zero);
-                        npc.StopInfluence();
                         toRemove.Add(npc);
                     }
+                    
                 }
-                foreach (NPCBehavior nPC in toRemove)
+                foreach (NPCBehavior npc in toRemove)
                 {
-                    influenced.Remove(nPC);
+                    influenced.Remove(npc);
+                    npc.movement.DoMove(Vector2.zero);
+                    npc.StopInfluence();
                 }
             }
         }
@@ -103,7 +114,7 @@ public class Influence : MonoBehaviour
         if (npc != null && !influenced.Contains(npc))
             influenced.Add(npc);
     }
-    
+
     private void OnTriggerExit(Collider other)
     {
         NPCBehavior npc = NPCManager.instance.GetNPC(other);
