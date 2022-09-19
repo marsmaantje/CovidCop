@@ -17,7 +17,6 @@ public class SicknessMeter : MonoBehaviour
     {
         mask = GetComponent<RectMask2D>();
         modifyMask = new Vector4(0, 0, 0, 0);
-        //RectMask2D uses Vector4 to mask from the 4 different sides
     }
 
 
