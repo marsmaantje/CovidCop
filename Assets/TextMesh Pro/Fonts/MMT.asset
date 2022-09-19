@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: MagicalMysteryTour SDF
+  m_Name: MMT
   m_EditorClassIdentifier: 
-  hashCode: 562445308
+  hashCode: 81396
   material: {fileID: 2217111222648225335}
-  materialHashCode: -710348836
+  materialHashCode: 2055163604
   m_Version: 1.1.0
   m_SourceFontFileGUID: 506fa9c943a0e114dbc0275532de2568
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 506fa9c943a0e114dbc0275532de2568,
