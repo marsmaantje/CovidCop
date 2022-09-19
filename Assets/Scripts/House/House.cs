@@ -26,15 +26,26 @@ public class House : MonoBehaviour
 
 
     private List<NPCBehavior> housedNPCs = new List<NPCBehavior>();
+    private List<NPCBehavior> lockdownNPCs = new List<NPCBehavior>();
 
     public Action<NPCBehavior> OnNPCAdded;
     public Action<NPCBehavior> OnNPCRemoved;
+
+    public int HouseCapacity { get => houseCapacity; }
+    public bool IsHospital { get => isHospital; }
 
     public List<NPCBehavior> getHousedNPCs()
     {
         return this.housedNPCs;
     }
 
+    public List<NPCBehavior> getLockdownNPCs() {
+        return this.lockdownNPCs;
+    }
+
+    public void addLockdownNPC(NPCBehavior npc) {
+        this.lockdownNPCs.Add(npc);
+    }
 
     void Start()
     {

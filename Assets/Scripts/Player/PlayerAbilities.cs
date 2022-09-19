@@ -28,16 +28,6 @@ public class PlayerAbilities : MonoBehaviour
         NPCManager.instance.NPCList.ForEach(npc =>
         {
             npc.SetState(NPCBehavior.NPCState.Lockdown);
-            Vector3 direction = npc.transform.position - HouseManager.instance.houses[0].transform.position;
-
-
-            direction.Normalize();
-
-            direction = npc.transform.InverseTransformDirection(direction);
-
-
-            Debug.Log(direction);
-            npc.movement.DoMove(new Vector2(direction.x, direction.z) * 2);
             // move npc to nearest house
         });
 

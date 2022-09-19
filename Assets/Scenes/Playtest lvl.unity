@@ -514,7 +514,7 @@ MonoBehaviour:
   - {fileID: 38178627}
   - {fileID: 28336196}
   - {fileID: 26540031}
-  InitialNPCSpawnCount: 3
+  InitialNPCSpawnCount: 20
   spawnMinRadius: 0
   spawnMaxRadius: 22.6
   spawnOrigin: {fileID: 591448781}
