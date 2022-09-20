@@ -34,13 +34,19 @@ public class NPCColliderTracker : MonoBehaviour
 
     private void Update()
     {
+        List<NPCBehavior> removeList = new List<NPCBehavior>();
         foreach (NPCBehavior npc in NPCList)
         {
             if(!npc.isActiveAndEnabled)
             {
                 NPCLeft?.Invoke(npc);
-                NPCList.Remove(npc);
+                removeList.Add(npc);
             }
+        }
+
+        foreach (NPCBehavior npc in removeList)
+        {
+            NPCList.Remove(npc);
         }
     }
 }
