@@ -12,6 +12,7 @@ public class SliderScript : MonoBehaviour
     
     void Update()
     {
-        txt.text = slider.value.ToString();
+        txt.SetText(slider.value.ToString());
+        
     }
 }

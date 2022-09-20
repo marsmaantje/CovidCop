@@ -31,6 +31,7 @@ public class Movement : MonoBehaviour
     public float jumpInterval = 0.3f;
 
     [Header("Rotation")]
+    public bool instantRotation = false;
     public float rotationSpeed = 2;
     public float rotationForce = 2;
     [SerializeField] private lookState RotationHandling = lookState.Rotate;
@@ -110,47 +111,76 @@ public class Movement : MonoBehaviour
         //rotate the player
         switch (RotationHandling)
         {
-            case(lookState.Rotate):
-                
-                rb.AddRelativeTorque(0, viewValue.x * rotationSpeed, 0);
-                
+            case (lookState.Rotate):
+                if (instantRotation)
+                {
+                    transform.Rotate(0, viewValue.x * rotationSpeed * Time.fixedDeltaTime, 0);
+                }
+                else
+                {
+                    rb.AddRelativeTorque(0, viewValue.x * rotationSpeed, 0);
+                }
                 break;
             case (lookState.ViewDesiredDirection):
-                
-                Vector3 viewDirection = new Vector3(viewValue.x, 0, viewValue.y);
+                if (instantRotation)
+                {
+                    Vector3 viewDirection = new Vector3(viewValue.x, 0, viewValue.y);
 
-                //transform the input vector into world space
-                Vector3 inputDir = Quaternion.Euler(0, pivot.eulerAngles.y, 0) * viewDirection;
+                    //transform the input vector into world space
+                    Vector3 inputDir = Quaternion.Euler(0, pivot.eulerAngles.y, 0) * viewDirection;
 
-                if (viewDirection.magnitude > 1)
-                    viewDirection.Normalize();
-                float rotationSpeedFactor = rotationSpeedFactorFromMagnitude.Evaluate(viewDirection.magnitude);
+                    transform.Rotate(0, Vector3.SignedAngle(transform.forward, inputDir, Vector3.up), 0);
+                }
+                else
+                {
+                    Vector3 viewDirection = new Vector3(viewValue.x, 0, viewValue.y);
 
-                float yAngleDifference = Vector3.SignedAngle(transform.forward, inputDir, Vector3.up);
-                yAngleDifference = Mathf.Clamp(yAngleDifference, -rotationSpeed * rotationSpeedFactor, rotationSpeed * rotationSpeedFactor);
+                    //transform the input vector into world space
+                    Vector3 inputDir = Quaternion.Euler(0, pivot.eulerAngles.y, 0) * viewDirection;
 
-                float damping = 1 - rotationDampingCurve.Evaluate(Mathf.Abs(rb.angularVelocity.y / Time.fixedDeltaTime / rotationSpeed));
-                yAngleDifference *= damping;
+                    if (viewDirection.magnitude > 1)
+                        viewDirection.Normalize();
+                    float rotationSpeedFactor = rotationSpeedFactorFromMagnitude.Evaluate(viewDirection.magnitude);
 
-                rb.AddRelativeTorque(Vector3.up * yAngleDifference * rotationForce);
-                
+                    float yAngleDifference = Vector3.SignedAngle(transform.forward, inputDir, Vector3.up);
+                    yAngleDifference = Mathf.Clamp(yAngleDifference, -rotationSpeed * rotationSpeedFactor, rotationSpeed * rotationSpeedFactor);
+
+                    float damping = 1 - rotationDampingCurve.Evaluate(Mathf.Abs(rb.angularVelocity.y / Time.fixedDeltaTime / rotationSpeed));
+                    yAngleDifference *= damping;
+
+                    rb.AddRelativeTorque(Vector3.up * yAngleDifference * rotationForce);
+
+                }
+
                 break;
             case (lookState.LookTowardsVelocity):
-
-                //only update rotation if velocity is high enough
                 if (rb.velocity.magnitude > minimumMovementSpeed)
-                {
-                    //get the direction the player is moving in
-                    Vector3 velDir = rb.velocity.normalized;
+                { //only update rotation if velocity is high enough
+                    if (instantRotation)
+                    {
+                        //get the direction the player is moving in
+                        Vector3 velDir = rb.velocity.normalized;
 
-                    //get the angle between the player's forward and the velocity
-                    float angle = Vector3.SignedAngle(transform.forward, velDir, Vector3.up);
+                        //get the angle between the player's forward and the velocity
+                        float angle = Vector3.SignedAngle(transform.forward, velDir, Vector3.up);
 
-                    //clamp the angle to the rotation speed
-                    angle = Mathf.Clamp(angle, -rotationSpeed, rotationSpeed);
+                        //rotate the player towards the velocity
+                        transform.Rotate(0, angle, 0);
+                    }
+                    else
+                    {
+                        //get the direction the player is moving in
+                        Vector3 velDir = rb.velocity.normalized;
 
-                    //add the rotation to the rigidbody
-                    rb.AddRelativeTorque(Vector3.up * angle * rotationForce);
+                        //get the angle between the player's forward and the velocity
+                        float angle = Vector3.SignedAngle(transform.forward, velDir, Vector3.up);
+
+                        //clamp the angle to the rotation speed
+                        angle = Mathf.Clamp(angle, -rotationSpeed, rotationSpeed);
+
+                        //add the rotation to the rigidbody
+                        rb.AddRelativeTorque(Vector3.up * angle * rotationForce);
+                    }
                 }
 
                 break;

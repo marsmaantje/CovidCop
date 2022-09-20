@@ -8,6 +8,8 @@ public class NPCManager : MonoBehaviour
 
     [field: SerializeField]
     public List<NPCBehavior> NPCList { get; private set; }
+    public List<NPCBehavior> InfectedNPCList { get; private set; }
+    public int InfectedCount { get => InfectedNPCList.Count; }
 
     [field: SerializeField]
     public List<Transform> GatheringPoints { get; private set; } = new List<Transform>();
@@ -38,6 +40,7 @@ public class NPCManager : MonoBehaviour
             instance = this;
 
         NPCList = new List<NPCBehavior>(InitialNPCSpawnCount);
+        InfectedNPCList = new List<NPCBehavior>(InitialNPCSpawnCount);
 
         for (int i = 0; i < InitialNPCSpawnCount; i++)
             spawnNPC();
@@ -57,12 +60,8 @@ public class NPCManager : MonoBehaviour
         if (Random.value < infectedOnSpawnChance)
             npc.infected = true;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        npc.OnInfected += OnNPCInfected;
+        npc.OnCured += OnNPCCured;
     }
 
     private void OnDrawGizmosSelected()
@@ -92,5 +91,15 @@ public class NPCManager : MonoBehaviour
             return npcColliders.GetValueOrDefault(collider);
 
         return null;
+    }
+
+    void OnNPCInfected(NPCBehavior npc)
+    {
+        InfectedNPCList.Add(npc);
+    }
+
+    void OnNPCCured(NPCBehavior npc)
+    {
+        InfectedNPCList.Remove(npc);
     }
 }

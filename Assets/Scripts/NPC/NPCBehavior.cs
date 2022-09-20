@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [System.Serializable]
 public class NPCBehavior : MonoBehaviour
@@ -32,6 +33,9 @@ public class NPCBehavior : MonoBehaviour
 
     private float lastHousedTime = float.MinValue;
 
+    public Action<NPCBehavior> OnInfected;
+    public Action<NPCBehavior> OnCured;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +51,14 @@ public class NPCBehavior : MonoBehaviour
             materialPropertyBlock.SetColor("_BaseColor", infected ? Color.green : Color.blue);
             renderer.SetPropertyBlock(materialPropertyBlock);
             pInfected = infected;
+            if(infected)
+            {
+                OnInfected?.Invoke(this);
+            }
+            else
+            {
+                OnCured?.Invoke(this);
+            }
         }
 
         if (currentState != previousState)
@@ -133,14 +145,14 @@ public class NPCBehavior : MonoBehaviour
         switch (newState)
         {
             case NPCState.Walking:
-                walkTimeLimit = Random.Range(minWalkTime, maxWalkTime);
+                walkTimeLimit = UnityEngine.Random.Range(minWalkTime, maxWalkTime);
                 walkTimeStart = Time.time;
 
                 //pick a target at random
-                walkTarget = NPCManager.instance.GatheringPoints[Random.Range(0, NPCManager.instance.GatheringPoints.Count)];
+                walkTarget = NPCManager.instance.GatheringPoints[UnityEngine.Random.Range(0, NPCManager.instance.GatheringPoints.Count)];
                 break;
             case NPCState.Waiting:
-                waitTime = Random.Range(minWaitTime, maxWaitTime);
+                waitTime = UnityEngine.Random.Range(minWaitTime, maxWaitTime);
                 waitStart = Time.time;
 
                 break;
