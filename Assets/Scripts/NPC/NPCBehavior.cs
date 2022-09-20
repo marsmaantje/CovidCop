@@ -95,30 +95,9 @@ public class NPCBehavior : MonoBehaviour
             case NPCState.Walking:
                 walkTimeLimit = Random.Range(minWalkTime, maxWalkTime);
                 walkTimeStart = Time.time;
-                //find closest 3 targets from target list in npcmanager
-                List<Transform> targets = new List<Transform>(3);
-                foreach (Transform target in NPCManager.instance.GatheringPoints)
-                {
-                    if (targets.Count < 3)
-                    {
-                        targets.Add(target);
-                    }
-                    else
-                    {
-                        float distance = Vector3.Distance(transform.position, target.position);
-                        for (int i = 0; i < targets.Count; i++)
-                        {
-                            float targetDistance = Vector3.Distance(transform.position, targets[i].position);
-                            if (distance < targetDistance)
-                            {
-                                targets[i] = target;
-                                break;
-                            }
-                        }
-                    }
-                }
-                //pick one at random
-                walkTarget = targets[Random.Range(0, targets.Count)];
+
+                //pick a target at random
+                walkTarget = NPCManager.instance.GatheringPoints[Random.Range(0, NPCManager.instance.GatheringPoints.Count)];
                 break;
             case NPCState.Waiting:
                 waitTime = Random.Range(minWaitTime, maxWaitTime);
