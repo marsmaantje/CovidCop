@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
 
     [Header("Rotation")]
     public float rotationSpeed = 2;
+    public float rotationForce = 2;
     [SerializeField] private lookState RotationHandling = lookState.Rotate;
     public float minimumMovementSpeed = 1;
     public AnimationCurve rotationSpeedFactorFromMagnitude;
@@ -131,7 +132,7 @@ public class Movement : MonoBehaviour
                 float damping = 1 - rotationDampingCurve.Evaluate(Mathf.Abs(rb.angularVelocity.y / Time.fixedDeltaTime / rotationSpeed));
                 yAngleDifference *= damping;
 
-                rb.AddRelativeTorque(Vector3.up * yAngleDifference);
+                rb.AddRelativeTorque(Vector3.up * yAngleDifference * rotationForce);
                 
                 break;
             case (lookState.LookTowardsVelocity):
@@ -149,7 +150,7 @@ public class Movement : MonoBehaviour
                     angle = Mathf.Clamp(angle, -rotationSpeed, rotationSpeed);
 
                     //add the rotation to the rigidbody
-                    rb.AddRelativeTorque(Vector3.up * angle);
+                    rb.AddRelativeTorque(Vector3.up * angle * rotationForce);
                 }
 
                 break;
