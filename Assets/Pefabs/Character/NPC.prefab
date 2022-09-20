@@ -5124,7 +5124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPC: {fileID: 1584196769699951305}
   ColliderTracker: {fileID: 1778324639598288970}
-  InfectionChance: 0.1
+  InfectionChance: 0.15
   updateRate: 1
 --- !u!23 &4535677388578384242 stripped
 MeshRenderer:
@@ -5142,7 +5142,7 @@ PrefabInstance:
     - target: {fileID: 1990678422965507974, guid: 9eba14f7d4fce1649ad097168e2a9e48,
         type: 3}
       propertyPath: m_Radius
-      value: 2.68
+      value: 3.22
       objectReference: {fileID: 0}
     - target: {fileID: 1990678422965507974, guid: 9eba14f7d4fce1649ad097168e2a9e48,
         type: 3}
@@ -5352,6 +5352,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 52dbd81393e28d44389d1f75d653637e, type: 3}
   SickVisuals:
   - {fileID: 2800000, guid: a3b99219af0321b4cb29e10d854084cc, type: 3}
+  - {fileID: 2800000, guid: 81b655ca6e0e9f041ae72eaec6f565d7, type: 3}
+  - {fileID: 2800000, guid: 1329cb1e53baf204db744bd6ea056b21, type: 3}
   particleEffect: {fileID: 6738751531866167144}
   npc: {fileID: 1584196769699951305}
 --- !u!137 &5391796392119403252 stripped

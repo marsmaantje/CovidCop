@@ -11,7 +11,7 @@ public class House : MonoBehaviour
     [Header("Wait Times")]
     [Range(1, 5)]
     [SerializeField] public float minWaitTime = 1f;
-    [Range(1, 5)]
+    [Range(1, 20)]
     [SerializeField] public float maxWaitTime = 5f;
     [Range(10, 50)]
     [SerializeField] public float minLockdownWaitTime = 10f;
@@ -44,6 +44,7 @@ public class House : MonoBehaviour
     public Action<NPCBehavior> OnNPCRemoved;
 
     public int HouseCapacity { get => houseCapacity; }
+    public int housedNPCCount { get => housedNPCs.Count; }
     public bool IsHospital { get => isHospital; }
 
     public List<NPCBehavior> getHousedNPCs()

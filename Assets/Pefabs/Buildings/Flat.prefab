@@ -42,6 +42,21 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.49551105
       objectReference: {fileID: 0}
+    - target: {fileID: 5116368581594267516, guid: e89be5c28404b1d47a97369cf30d7a35,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116368581594267516, guid: e89be5c28404b1d47a97369cf30d7a35,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 5116368581594267516, guid: e89be5c28404b1d47a97369cf30d7a35,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 13.38
+      objectReference: {fileID: 0}
     - target: {fileID: 5591733776269908770, guid: e89be5c28404b1d47a97369cf30d7a35,
         type: 3}
       propertyPath: m_Name

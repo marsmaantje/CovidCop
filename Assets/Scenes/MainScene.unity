@@ -1557,9 +1557,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7307955716569307211, guid: 58aa04ea3e51cf5469bcf68f5dd1984e,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7307955716569307211, guid: 58aa04ea3e51cf5469bcf68f5dd1984e,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7307955716569307211, guid: 58aa04ea3e51cf5469bcf68f5dd1984e,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 7307955716569307211, guid: 58aa04ea3e51cf5469bcf68f5dd1984e,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58aa04ea3e51cf5469bcf68f5dd1984e, type: 3}
 --- !u!4 &278543962 stripped
@@ -2571,6 +2586,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: House1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7307955716569307211, guid: 58aa04ea3e51cf5469bcf68f5dd1984e,
+        type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7307955716569307211, guid: 58aa04ea3e51cf5469bcf68f5dd1984e,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7307955716569307211, guid: 58aa04ea3e51cf5469bcf68f5dd1984e,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58aa04ea3e51cf5469bcf68f5dd1984e, type: 3}
 --- !u!4 &474503773 stripped
@@ -3529,9 +3559,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 977449120892009491, guid: 9b00407465db12e43a5265667f90a781,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 977449120892009491, guid: 9b00407465db12e43a5265667f90a781,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 977449120892009491, guid: 9b00407465db12e43a5265667f90a781,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 977449120892009491, guid: 9b00407465db12e43a5265667f90a781,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5093685132546871169, guid: 9b00407465db12e43a5265667f90a781,
         type: 3}
       propertyPath: m_Name
@@ -3645,7 +3690,7 @@ MonoBehaviour:
   - {fileID: 1701338953}
   InitialNPCSpawnCount: 20
   spawnMinRadius: 0
-  spawnMaxRadius: 22.6
+  spawnMaxRadius: 22
   spawnOrigin: {fileID: 591448781}
   infectedOnSpawnChance: 0.245
 --- !u!4 &591448781
@@ -3773,9 +3818,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2676338042860174755, guid: ade366302b2f26042aa2099208adcb2c,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676338042860174755, guid: ade366302b2f26042aa2099208adcb2c,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676338042860174755, guid: ade366302b2f26042aa2099208adcb2c,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 2676338042860174755, guid: ade366302b2f26042aa2099208adcb2c,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4880995497809583702, guid: ade366302b2f26042aa2099208adcb2c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4858,9 +4918,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6305766342920579130, guid: d6184f081cb5fc249b89908e75adcf31,
         type: 3}
       propertyPath: m_Name
@@ -5590,9 +5665,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6305766342920579130, guid: d6184f081cb5fc249b89908e75adcf31,
         type: 3}
       propertyPath: m_Name
@@ -5745,9 +5835,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6305766342920579130, guid: d6184f081cb5fc249b89908e75adcf31,
         type: 3}
       propertyPath: m_Name
@@ -5870,9 +5975,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6305766342920579130, guid: d6184f081cb5fc249b89908e75adcf31,
         type: 3}
       propertyPath: m_Name
@@ -6920,9 +7040,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7307955716569307211, guid: 58aa04ea3e51cf5469bcf68f5dd1984e,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7307955716569307211, guid: 58aa04ea3e51cf5469bcf68f5dd1984e,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7307955716569307211, guid: 58aa04ea3e51cf5469bcf68f5dd1984e,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 7307955716569307211, guid: 58aa04ea3e51cf5469bcf68f5dd1984e,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58aa04ea3e51cf5469bcf68f5dd1984e, type: 3}
 --- !u!4 &1114839866 stripped
@@ -7195,9 +7330,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4388452663135751142, guid: d6184f081cb5fc249b89908e75adcf31,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7410,9 +7560,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6305766342920579130, guid: d6184f081cb5fc249b89908e75adcf31,
         type: 3}
       propertyPath: m_Name
@@ -7990,9 +8155,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 977449120892009491, guid: 9b00407465db12e43a5265667f90a781,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 977449120892009491, guid: 9b00407465db12e43a5265667f90a781,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 977449120892009491, guid: 9b00407465db12e43a5265667f90a781,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 977449120892009491, guid: 9b00407465db12e43a5265667f90a781,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5093685132546871169, guid: 9b00407465db12e43a5265667f90a781,
         type: 3}
       propertyPath: m_Name
@@ -9045,9 +9225,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 977449120892009491, guid: 9b00407465db12e43a5265667f90a781,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 977449120892009491, guid: 9b00407465db12e43a5265667f90a781,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 977449120892009491, guid: 9b00407465db12e43a5265667f90a781,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 977449120892009491, guid: 9b00407465db12e43a5265667f90a781,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5093685132546871169, guid: 9b00407465db12e43a5265667f90a781,
         type: 3}
       propertyPath: m_Name
@@ -9166,7 +9361,7 @@ PrefabInstance:
     - target: {fileID: 2305287053060965728, guid: 8dd28d2dbeb8a1a4ca3b5f138f343d15,
         type: 3}
       propertyPath: minWaitTime
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2305287053060965728, guid: 8dd28d2dbeb8a1a4ca3b5f138f343d15,
         type: 3}
@@ -9176,7 +9371,7 @@ PrefabInstance:
     - target: {fileID: 2305287053060965728, guid: 8dd28d2dbeb8a1a4ca3b5f138f343d15,
         type: 3}
       propertyPath: houseCapacity
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2305287053060965728, guid: 8dd28d2dbeb8a1a4ca3b5f138f343d15,
         type: 3}
@@ -9439,9 +9634,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4388452663135751142, guid: d6184f081cb5fc249b89908e75adcf31,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9595,12 +9805,12 @@ PrefabInstance:
     - target: {fileID: 1566519247651288496, guid: 41b92739809fd4b4fa1d7939a5282328,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000015361797
+      value: 0.000000015361794
       objectReference: {fileID: 0}
     - target: {fileID: 1566519247651288496, guid: 41b92739809fd4b4fa1d7939a5282328,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000007750794
+      value: -0.000000007750792
       objectReference: {fileID: 0}
     - target: {fileID: 1566519247651288496, guid: 41b92739809fd4b4fa1d7939a5282328,
         type: 3}
@@ -9833,9 +10043,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 2063328661532646312, guid: d6184f081cb5fc249b89908e75adcf31,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6305766342920579130, guid: d6184f081cb5fc249b89908e75adcf31,
         type: 3}
       propertyPath: m_Name
@@ -10818,9 +11043,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7307955716569307211, guid: 58aa04ea3e51cf5469bcf68f5dd1984e,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7307955716569307211, guid: 58aa04ea3e51cf5469bcf68f5dd1984e,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7307955716569307211, guid: 58aa04ea3e51cf5469bcf68f5dd1984e,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 7307955716569307211, guid: 58aa04ea3e51cf5469bcf68f5dd1984e,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58aa04ea3e51cf5469bcf68f5dd1984e, type: 3}
 --- !u!4 &1750725650 stripped
@@ -11572,9 +11812,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2676338042860174755, guid: ade366302b2f26042aa2099208adcb2c,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676338042860174755, guid: ade366302b2f26042aa2099208adcb2c,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676338042860174755, guid: ade366302b2f26042aa2099208adcb2c,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 2676338042860174755, guid: ade366302b2f26042aa2099208adcb2c,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6709895860692860437, guid: ade366302b2f26042aa2099208adcb2c,
         type: 3}
       propertyPath: m_RootOrder
@@ -12077,9 +12332,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2676338042860174755, guid: ade366302b2f26042aa2099208adcb2c,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676338042860174755, guid: ade366302b2f26042aa2099208adcb2c,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676338042860174755, guid: ade366302b2f26042aa2099208adcb2c,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 2676338042860174755, guid: ade366302b2f26042aa2099208adcb2c,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4880995497809583702, guid: ade366302b2f26042aa2099208adcb2c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12608,9 +12878,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2676338042860174755, guid: ade366302b2f26042aa2099208adcb2c,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676338042860174755, guid: ade366302b2f26042aa2099208adcb2c,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676338042860174755, guid: ade366302b2f26042aa2099208adcb2c,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 2676338042860174755, guid: ade366302b2f26042aa2099208adcb2c,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4880995497809583702, guid: ade366302b2f26042aa2099208adcb2c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13627,9 +13912,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 977449120892009491, guid: 9b00407465db12e43a5265667f90a781,
         type: 3}
+      propertyPath: maxWaitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 977449120892009491, guid: 9b00407465db12e43a5265667f90a781,
+        type: 3}
+      propertyPath: minWaitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 977449120892009491, guid: 9b00407465db12e43a5265667f90a781,
+        type: 3}
       propertyPath: houseManager
       value: 
       objectReference: {fileID: 984838274}
+    - target: {fileID: 977449120892009491, guid: 9b00407465db12e43a5265667f90a781,
+        type: 3}
+      propertyPath: houseCapacity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5093685132546871169, guid: 9b00407465db12e43a5265667f90a781,
         type: 3}
       propertyPath: m_Name
