@@ -18,6 +18,6 @@ public class EqualNums : MonoBehaviour
 
     void Update()
     {
-        txt.text = txtToCopy.text;
+        txt.SetText(txtToCopy.text);
     }
 }
