@@ -79,7 +79,7 @@ public class House : MonoBehaviour
         switch (currentState)
         {
             case HouseState.Normal:
-                minWaitTime = startMaxWaitTime;
+                minWaitTime = startMinWaitTime;
                 maxWaitTime = startMaxWaitTime;
                 break;
 

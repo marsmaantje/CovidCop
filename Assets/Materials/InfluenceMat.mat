@@ -48,7 +48,7 @@ Material:
     - _DecalMeshViewBias: 0
     - _DrawOrder: 0
     - _Repetitions: 3
-    - _Speed: -1
+    - _Speed: 1
     m_Colors:
-    - _CircleColor: {r: 0, g: 2.9176471, b: 4, a: 1}
+    - _CircleColor: {r: 4, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

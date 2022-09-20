@@ -12,6 +12,21 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2447189043151084778, guid: 9dbd30fec0bfa5548821e17f87054a31,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447189043151084779, guid: 9dbd30fec0bfa5548821e17f87054a31,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447189043151084779, guid: 9dbd30fec0bfa5548821e17f87054a31,
+        type: 3}
+      propertyPath: m_Radius
+      value: 1.05
+      objectReference: {fileID: 0}
     - target: {fileID: 2447189043151084782, guid: 9dbd30fec0bfa5548821e17f87054a31,
         type: 3}
       propertyPath: m_RootOrder
