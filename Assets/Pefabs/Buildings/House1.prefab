@@ -57,6 +57,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: House1
       objectReference: {fileID: 0}
+    - target: {fileID: 6702332892829571279, guid: e89be5c28404b1d47a97369cf30d7a35,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702332892829571279, guid: e89be5c28404b1d47a97369cf30d7a35,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 7.6
+      objectReference: {fileID: 0}
     - target: {fileID: 9116198994032093958, guid: e89be5c28404b1d47a97369cf30d7a35,
         type: 3}
       propertyPath: m_RootOrder
