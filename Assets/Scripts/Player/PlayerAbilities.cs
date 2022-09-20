@@ -31,5 +31,11 @@ public class PlayerAbilities : MonoBehaviour
             // move npc to nearest house
         });
 
+        HouseManager.instance.houses.ForEach(house => {
+            if(!house.IsHospital) {
+                house.SetState(House.HouseState.Lockdown);
+            }
+        });
+
     }
 }

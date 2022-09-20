@@ -10,9 +10,17 @@ public class House : MonoBehaviour
 
     [Header("Wait Times")]
     [Range(1, 5)]
-    [SerializeField] private float minWaitTime = 1f;
+    [SerializeField] public float minWaitTime = 1f;
     [Range(1, 5)]
-    [SerializeField] private float maxWaitTime = 5f;
+    [SerializeField] public float maxWaitTime = 5f;
+    [Range(10, 50)]
+    [SerializeField] public float minLockdownWaitTime = 10f;
+    [Range(10, 50)]
+    [SerializeField] public float maxLockdownWaitTime = 20f;
+
+    private float startMinWaitTime;
+    private float startMaxWaitTime;
+
 
     [Range(1, 10)]
     [SerializeField] private float npcHouseCooldown = 2f;
@@ -23,6 +31,10 @@ public class House : MonoBehaviour
     [SerializeField] private bool isHospital = false;
 
     [SerializeField] private HouseManager houseManager;
+
+
+    [SerializeField] private HouseState currentState = HouseState.Normal;
+    private HouseState previousState = HouseState.Normal;
 
 
     private List<NPCBehavior> housedNPCs = new List<NPCBehavior>();
@@ -39,11 +51,13 @@ public class House : MonoBehaviour
         return this.housedNPCs;
     }
 
-    public List<NPCBehavior> getLockdownNPCs() {
+    public List<NPCBehavior> getLockdownNPCs()
+    {
         return this.lockdownNPCs;
     }
 
-    public void addLockdownNPC(NPCBehavior npc) {
+    public void addLockdownNPC(NPCBehavior npc)
+    {
         this.lockdownNPCs.Add(npc);
     }
 
@@ -54,6 +68,26 @@ public class House : MonoBehaviour
 
         houseManager.houses.Add(this);
         Debug.Log("House added to HouseManager: " + this.name);
+
+        startMinWaitTime = minWaitTime;
+        startMaxWaitTime = maxWaitTime;
+
+    }
+
+    void Update()
+    {
+        switch (currentState)
+        {
+            case HouseState.Normal:
+                minWaitTime = startMaxWaitTime;
+                maxWaitTime = startMaxWaitTime;
+                break;
+
+            case HouseState.Lockdown:
+                minWaitTime = minLockdownWaitTime;
+                maxWaitTime = maxLockdownWaitTime;
+                break;
+        }
     }
 
 
@@ -111,6 +145,8 @@ public class House : MonoBehaviour
 
     private void ReleaseNPC()
     {
+        this.SetState(HouseState.Normal);
+
         NPCBehavior npc = housedNPCs[0];
         housedNPCs.RemoveAt(0);
 
@@ -121,5 +157,17 @@ public class House : MonoBehaviour
         if (isHospital) npc.infected = false;
 
         OnNPCRemoved?.Invoke(npc);
+    }
+
+    public void SetState(HouseState state)
+    {
+        previousState = currentState;
+        currentState = state;
+    }
+
+    public enum HouseState
+    {
+        Normal,
+        Lockdown
     }
 }
