@@ -12,7 +12,7 @@ public class NPCBehavior : MonoBehaviour
     [SerializeField] private float minWalkTime;
     [SerializeField] private float maxWalkTime;
     [SerializeField] private float maxWalkTargetDistance;
-    [SerializeField] private NPCState currentState = NPCState.Waiting;
+    [SerializeField] public NPCState currentState = NPCState.Waiting;
     private NPCState previousState = NPCState.Walking;
     public Rigidbody rigidbody;
     public Collider collider;
@@ -94,6 +94,9 @@ public class NPCBehavior : MonoBehaviour
     void startLockdown()
     {
         List<House> houses = new List<House>(HouseManager.instance.houses);
+        
+        houses.RemoveAll(house => house.IsHospital);
+
         // Rank houses on distance from NPC
         houses.Sort((a, b) => Vector3.Distance(a.transform.position, transform.position).CompareTo(Vector3.Distance(b.transform.position, transform.position)));
         // Find the closest house that has space
@@ -109,13 +112,13 @@ public class NPCBehavior : MonoBehaviour
 
         if (closestHouse != null)
         {
+            closestHouse.addLockdownNPC(this);
             // Move to the house
             Vector3 relativeTarget = closestHouse.transform.position - transform.position;
             //rotate relativeTarget to be relative to the NPC
             relativeTarget = Quaternion.Euler(0, -transform.rotation.eulerAngles.y, 0) * relativeTarget;
             movement.DoMove(new Vector2(relativeTarget.x, relativeTarget.z));
             // Add to the house
-            closestHouse.addLockdownNPC(this);
         }
         else
         {

@@ -22,6 +22,8 @@ public class House : MonoBehaviour
     private float startMaxWaitTime;
 
 
+    // [SerializeField] private float lockdownCureChance;
+
     [Range(1, 10)]
     [SerializeField] private float npcHouseCooldown = 2f;
 
@@ -126,7 +128,14 @@ public class House : MonoBehaviour
                             }
                         }
                     }
-                    Invoke("ReleaseNPC", UnityEngine.Random.Range(minWaitTime, maxWaitTime));
+                    if (currentState == HouseState.Lockdown)
+                    {
+                        Invoke("LockdownRelease", UnityEngine.Random.Range(minWaitTime, maxWaitTime));
+                    }
+                    else
+                    {
+                        Invoke("ReleaseNPC", UnityEngine.Random.Range(minWaitTime, maxWaitTime));
+                    }
                     OnNPCAdded?.Invoke(npc);
                 }
                 else
@@ -146,8 +155,8 @@ public class House : MonoBehaviour
     private void ReleaseNPC()
     {
         this.SetState(HouseState.Normal);
-
         NPCBehavior npc = housedNPCs[0];
+
         housedNPCs.RemoveAt(0);
 
         npc.setLastHousedTime(Time.time);
@@ -155,6 +164,35 @@ public class House : MonoBehaviour
         npc.SetState(NPCBehavior.NPCState.Walking);
 
         if (isHospital) npc.infected = false;
+
+        OnNPCRemoved?.Invoke(npc);
+    }
+
+    private void LockdownRelease()
+    {
+        if (this.housedNPCs.Count < 1)
+        {
+            this.SetState(HouseState.Normal);
+            return;
+        }
+
+        NPCBehavior npc = housedNPCs[0];
+
+
+        // 80% chance to cure
+        if (npc.infected && UnityEngine.Random.value < 0.8f)
+        {
+            npc.infected = false;
+        }
+
+        
+
+        housedNPCs.Remove(npc);
+        lockdownNPCs.Remove(npc);
+
+        npc.setLastHousedTime(Time.time);
+        npc.gameObject.SetActive(true);
+        npc.SetState(NPCBehavior.NPCState.Walking);
 
         OnNPCRemoved?.Invoke(npc);
     }
