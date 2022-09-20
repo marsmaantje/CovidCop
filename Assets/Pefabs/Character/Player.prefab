@@ -433,6 +433,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6232786520871358469}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-6687870493698857112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613529189831593205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1f55bcece2099e45ac0e5bf0c049bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3382229506982813295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,6 +539,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c5e33286-59d9-4b43-9bdb-e9d0aa2a2023
     m_ActionName: Player/Push[/Keyboard/q,/DualSenseGamepadHID/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -6687870493698857112}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f663ced1-c1cd-4780-8c95-339c7d0d5b96
+    m_ActionName: Player/LockdownAbility[/Keyboard/l]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player
