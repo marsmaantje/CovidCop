@@ -20,13 +20,12 @@ public class NPCManager : MonoBehaviour
     public static NPCManager instance;
 
     [Header("NPC Spawn Settings")]
+    [SerializeField] private bool spawnOnGatheringPoints = false;
     [SerializeField] private float spawnMinRadius;
     [SerializeField] private float spawnMaxRadius;
     [SerializeField] private Transform spawnOrigin;
 
-
-    [Range(0, 1)]
-    [SerializeField] private float infectedOnSpawnChance = 1f;
+    [SerializeField] private int InfectedCountOnStart = 5;
 
 
 
@@ -45,20 +44,28 @@ public class NPCManager : MonoBehaviour
         for (int i = 0; i < InitialNPCSpawnCount; i++)
             spawnNPC();
 
-
+        for (int i = 0; i < InfectedCountOnStart; i++)
+            NPCList[i].infected = true;
 
     }
 
     void spawnNPC()
     {
-        Vector2 flatSpawnPos = Random.insideUnitCircle.normalized * Random.Range(spawnMinRadius, spawnMaxRadius);
-        Vector3 spawnPos = new Vector3(flatSpawnPos.x, 0, flatSpawnPos.y) + spawnOrigin.position;
+        Vector3 spawnPos;
+        if (spawnOnGatheringPoints)
+        {
+            Vector3 targetPos = GatheringPoints[Random.Range(0, GatheringPoints.Count)].position;
+            Vector2 spawnOffset = Random.insideUnitCircle.normalized * Random.Range(spawnMinRadius, spawnMaxRadius);
+            spawnPos = new Vector3(targetPos.x + spawnOffset.x, 0, targetPos.z + spawnOffset.y);
+        }
+        else
+        {
+            Vector2 flatSpawnPos = Random.insideUnitCircle.normalized * Random.Range(spawnMinRadius, spawnMaxRadius);
+            spawnPos = new Vector3(flatSpawnPos.x, 0, flatSpawnPos.y) + spawnOrigin.position;
+        }
         NPCBehavior npc = Instantiate(prefab, spawnPos, Quaternion.identity);
         npcColliders.Add(npc.collider, npc);
         NPCList.Add(npc);
-
-        if (Random.value < infectedOnSpawnChance)
-            npc.infected = true;
 
         npc.OnInfected += OnNPCInfected;
         npc.OnCured += OnNPCCured;
@@ -72,6 +79,18 @@ public class NPCManager : MonoBehaviour
             Gizmos.DrawWireSphere(spawnOrigin.position, spawnMinRadius);
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(spawnOrigin.position, spawnMaxRadius);
+        }
+
+        if (spawnOnGatheringPoints && GatheringPoints != null && GatheringPoints.Count > 0)
+        {
+            foreach (Transform point in GatheringPoints)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawWireSphere(point.position, spawnMinRadius);
+                Gizmos.color = Color.green;
+                Gizmos.DrawWireSphere(point.position, spawnMaxRadius);
+            }
+
         }
     }
 
