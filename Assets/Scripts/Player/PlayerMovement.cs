@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerMovement : MonoBehaviour
 {
-    public Movement movement;
+    public Movement movement;    
     bool isMouse = false;
     public PhysicMaterial deathMaterial;
     new public Collider collider;

@@ -82,7 +82,7 @@ public class NPCBehavior : MonoBehaviour
 
                 break;
             case NPCState.Lockdown:
-                
+                startLockdown();
                 break;
             default:
                 Debug.LogError("NPCState not implemented");
@@ -90,6 +90,43 @@ public class NPCBehavior : MonoBehaviour
         }
 
     }
+
+    void startLockdown()
+    {
+        List<House> houses = new List<House>(HouseManager.instance.houses);
+        // Rank houses on distance from NPC
+        houses.Sort((a, b) => Vector3.Distance(a.transform.position, transform.position).CompareTo(Vector3.Distance(b.transform.position, transform.position)));
+        // Find the closest house that has space
+        House closestHouse = null;
+        foreach (House house in houses)
+        {
+            if (house.getHousedNPCs().Count < house.HouseCapacity)
+            {
+                closestHouse = house;
+                break;
+            }
+        }
+
+        if (closestHouse != null)
+        {
+            // Move to the house
+            Vector3 relativeTarget = closestHouse.transform.position - transform.position;
+            //rotate relativeTarget to be relative to the NPC
+            relativeTarget = Quaternion.Euler(0, -transform.rotation.eulerAngles.y, 0) * relativeTarget;
+            movement.DoMove(new Vector2(relativeTarget.x, relativeTarget.z));
+            // Add to the house
+            closestHouse.addLockdownNPC(this);
+        }
+        else
+        {
+            // No house found, just wait
+            currentState = NPCState.Waiting;
+        }
+
+
+    }
+
+    
 
     void OnStateChange(NPCState oldState, NPCState newState)
     {
@@ -146,6 +183,14 @@ public class NPCBehavior : MonoBehaviour
     public void StopInfluence()
     {
         if (currentState == NPCState.Influenced)
+        {
+            currentState = NPCState.Waiting;
+        }
+    }
+
+    public void StopLockdown()
+    {
+        if (currentState == NPCState.Lockdown)
         {
             currentState = NPCState.Waiting;
         }
