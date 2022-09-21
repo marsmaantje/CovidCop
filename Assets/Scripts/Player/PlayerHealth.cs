@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
 
     [Range(0, 1)]
     [SerializeField] private float healthDecreaseRate = 0.01f;
-    private float playerHealth = 1f;
+    public float playerHealth = 1f;
 
 
     // Start is called before the first frame update

@@ -8,8 +8,8 @@ public class SicknessMeter : MonoBehaviour
 
     RectMask2D mask;
 
-    [Range(0, 330)]
-    public int sickness;
+    [Range(0, 1)]
+    public float sickness;
 
     Vector4 modifyMask;
 
@@ -24,6 +24,6 @@ public class SicknessMeter : MonoBehaviour
     {
         mask.padding = modifyMask;
 
-        modifyMask.z = sickness;
+        modifyMask.z = sickness * 330;
     }
 }
