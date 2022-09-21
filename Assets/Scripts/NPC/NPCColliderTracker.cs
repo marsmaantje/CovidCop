@@ -38,7 +38,7 @@ public class NPCColliderTracker : MonoBehaviour
 
             npc.OnInfected -= NPCInfected;
             npc.OnCured -= NPCCured;
-
+            
             if (npc.infected)
                 InfectedNPCList.Remove(npc);
         }

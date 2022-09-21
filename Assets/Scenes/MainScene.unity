@@ -10977,6 +10977,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2305287053060965728, guid: 8dd28d2dbeb8a1a4ca3b5f138f343d15,
         type: 3}
+      propertyPath: npcHouseCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2305287053060965728, guid: 8dd28d2dbeb8a1a4ca3b5f138f343d15,
+        type: 3}
       propertyPath: minLockdownWaitTime
       value: 10
       objectReference: {fileID: 0}
@@ -11267,12 +11272,12 @@ PrefabInstance:
     - target: {fileID: 1566519247651288496, guid: 41b92739809fd4b4fa1d7939a5282328,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000015334981
+      value: -0.00000001533442
       objectReference: {fileID: 0}
     - target: {fileID: 1566519247651288496, guid: 41b92739809fd4b4fa1d7939a5282328,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000078051094
+      value: 0.000000007804823
       objectReference: {fileID: 0}
     - target: {fileID: 1566519247651288496, guid: 41b92739809fd4b4fa1d7939a5282328,
         type: 3}
