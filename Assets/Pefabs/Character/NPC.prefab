@@ -5448,6 +5448,26 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4468692123116275562}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &39642434508608370
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3657646507959761467}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 640c2db356d8402419795b7fea3119c7, type: 3}
+  m_Controller: {fileID: 9100000, guid: bbc5c2bc3e2ba9645a305c8b1a17a3cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &5831970030734079915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5471,6 +5491,20 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 1329cb1e53baf204db744bd6ea056b21, type: 3}
   particleEffect: {fileID: 6738751531866167144}
   npc: {fileID: 1584196769699951305}
+--- !u!114 &8448994941736596618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3657646507959761467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d89443a21064249a5749e62a3f475d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 39642434508608370}
+  rb: {fileID: 4535677387971244677}
 --- !u!137 &5391796392119403252 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 8417361359673230750, guid: 640c2db356d8402419795b7fea3119c7,

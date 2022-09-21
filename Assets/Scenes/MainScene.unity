@@ -2971,7 +2971,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: b0a478f3f85f5a04aa9687e0d7f17d4f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.344
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -11272,12 +11272,12 @@ PrefabInstance:
     - target: {fileID: 1566519247651288496, guid: 41b92739809fd4b4fa1d7939a5282328,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001533442
+      value: 0.000000015334981
       objectReference: {fileID: 0}
     - target: {fileID: 1566519247651288496, guid: 41b92739809fd4b4fa1d7939a5282328,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000007804823
+      value: -0.0000000078051094
       objectReference: {fileID: 0}
     - target: {fileID: 1566519247651288496, guid: 41b92739809fd4b4fa1d7939a5282328,
         type: 3}

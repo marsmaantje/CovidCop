@@ -6,6 +6,7 @@ using UnityEngine;
 public class NPCColliderTracker : MonoBehaviour
 {
     public List<NPCBehavior> NPCList { get; private set; } = new List<NPCBehavior>();
+    public List<NPCBehavior> InfectedNPCList { get; private set; } = new List<NPCBehavior>();
 
     [SerializeField] List<NPCBehavior> IgnoreList = new List<NPCBehavior>();
 
@@ -19,6 +20,11 @@ public class NPCColliderTracker : MonoBehaviour
         {
             NPCList.Add(npc);
             NPCEntered?.Invoke(npc);
+            if (npc.infected)
+                InfectedNPCList.Add(npc);
+
+            npc.OnInfected += NPCInfected;
+            npc.OnCured += NPCCured;
         }
     }
 
@@ -29,6 +35,12 @@ public class NPCColliderTracker : MonoBehaviour
         {
             NPCList.Remove(npc);
             NPCLeft?.Invoke(npc);
+
+            npc.OnInfected -= NPCInfected;
+            npc.OnCured -= NPCCured;
+
+            if (npc.infected)
+                InfectedNPCList.Remove(npc);
         }
     }
 
@@ -47,6 +59,26 @@ public class NPCColliderTracker : MonoBehaviour
         foreach (NPCBehavior npc in removeList)
         {
             NPCList.Remove(npc);
+            npc.OnInfected -= NPCInfected;
+            npc.OnCured -= NPCCured;
+            if (InfectedNPCList.Contains(npc))
+                InfectedNPCList.Remove(npc);
+        }
+    }
+
+    void NPCInfected(NPCBehavior npc)
+    {
+        if(NPCList.Contains(npc))
+        {
+            InfectedNPCList.Add(npc);
+        }
+    }
+    
+    void NPCCured(NPCBehavior npc)
+    {
+        if (InfectedNPCList.Contains(npc))
+        {
+            InfectedNPCList.Remove(npc);
         }
     }
 }
