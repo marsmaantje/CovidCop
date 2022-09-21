@@ -142,6 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd863036dc8d4c24bbeb467127ae9222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 887016841104526088}
+  house: {fileID: -8738905952311105360}
+  pitchEnter: 1
+  pitchLeave: 0.8
 --- !u!1 &5591733776269908770
 GameObject:
   m_ObjectHideFlags: 0
