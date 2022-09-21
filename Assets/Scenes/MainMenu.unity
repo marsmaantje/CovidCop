@@ -211,8 +211,8 @@ GameObject:
   - component: {fileID: 170217282}
   - component: {fileID: 170217286}
   - component: {fileID: 170217285}
-  - component: {fileID: 170217284}
   - component: {fileID: 170217283}
+  - component: {fileID: 170217287}
   m_Layer: 5
   m_Name: MusicNumberTOP
   m_TagString: Untagged
@@ -255,20 +255,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0.0627451, g: 0.3254902, b: 0.7607844, a: 1}
   m_EffectDistance: {x: 10, y: 10}
   m_UseGraphicAlpha: 1
---- !u!114 &170217284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170217281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8af5d87d6bc50074aad084842f3072a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1454115945}
-  txt: {fileID: 170217285}
 --- !u!114 &170217285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,6 +353,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170217281}
   m_CullTransparentMesh: 1
+--- !u!114 &170217287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170217281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35b9375c412baf4ea6a8521c80e904b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtToCopy: {fileID: 702794097}
 --- !u!1 &213866625
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,6 +848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 409375739}
   - component: {fileID: 409375740}
+  - component: {fileID: 409375741}
   m_Layer: 5
   m_Name: SFXSlider
   m_TagString: Untagged
@@ -926,12 +926,38 @@ MonoBehaviour:
   m_HandleRect: {fileID: 119987545}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
-  m_WholeNumbers: 1
-  m_Value: 50
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 409375741}
+        m_TargetAssemblyTypeName: VolumeSlider, Assembly-CSharp
+        m_MethodName: OnChangeSlider
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &409375741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409375738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923343b0ba33fa845bf7197a2581cb5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mixer: {fileID: 24100000, guid: f60ddf021adacde45aff159d6bbbd431, type: 2}
+  VolumeName: SfxVolume
 --- !u!1 &423530162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,7 +1116,7 @@ GameObject:
   - component: {fileID: 518150331}
   - component: {fileID: 518150335}
   - component: {fileID: 518150334}
-  - component: {fileID: 518150333}
+  - component: {fileID: 518150336}
   m_Layer: 5
   m_Name: SoundNumberTOP
   m_TagString: Untagged
@@ -1118,20 +1144,6 @@ RectTransform:
   m_AnchoredPosition: {x: 400, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &518150333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518150330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8af5d87d6bc50074aad084842f3072a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 409375740}
-  txt: {fileID: 518150334}
 --- !u!114 &518150334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1230,6 +1242,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518150330}
   m_CullTransparentMesh: 1
+--- !u!114 &518150336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518150330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35b9375c412baf4ea6a8521c80e904b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtToCopy: {fileID: 801768729}
 --- !u!1 &610115613
 GameObject:
   m_ObjectHideFlags: 0
@@ -2638,6 +2663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1454115944}
   - component: {fileID: 1454115945}
+  - component: {fileID: 1454115946}
   m_Layer: 5
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -2715,12 +2741,38 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1912465519}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
-  m_WholeNumbers: 1
-  m_Value: 50
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1454115946}
+        m_TargetAssemblyTypeName: VolumeSlider, Assembly-CSharp
+        m_MethodName: OnChangeSlider
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1454115946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454115943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923343b0ba33fa845bf7197a2581cb5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mixer: {fileID: 24100000, guid: f60ddf021adacde45aff159d6bbbd431, type: 2}
+  VolumeName: MusicVolume
 --- !u!1 &1461511889
 GameObject:
   m_ObjectHideFlags: 0
@@ -2787,7 +2839,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461511889}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
