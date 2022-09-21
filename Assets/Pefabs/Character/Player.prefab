@@ -414,6 +414,105 @@ MonoBehaviour:
   maxLowRumble: 0.4
   maxHighRumble: 0.6
   rumbleFaloffTime: 1
+--- !u!114 &1716760701771025269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613529189831593205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a947ce5b10ed8419f26311cba5f00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcColliderTracker: {fileID: 7001697811428652688}
+--- !u!1001 &6526004126318450926
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8613529189831593195}
+    m_Modifications:
+    - target: {fileID: 1990678422965507974, guid: 9eba14f7d4fce1649ad097168e2a9e48,
+        type: 3}
+      propertyPath: m_Radius
+      value: 5.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042000146673273405, guid: 9eba14f7d4fce1649ad097168e2a9e48,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042000146673273405, guid: 9eba14f7d4fce1649ad097168e2a9e48,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042000146673273405, guid: 9eba14f7d4fce1649ad097168e2a9e48,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042000146673273405, guid: 9eba14f7d4fce1649ad097168e2a9e48,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042000146673273405, guid: 9eba14f7d4fce1649ad097168e2a9e48,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042000146673273405, guid: 9eba14f7d4fce1649ad097168e2a9e48,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042000146673273405, guid: 9eba14f7d4fce1649ad097168e2a9e48,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042000146673273405, guid: 9eba14f7d4fce1649ad097168e2a9e48,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042000146673273405, guid: 9eba14f7d4fce1649ad097168e2a9e48,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042000146673273405, guid: 9eba14f7d4fce1649ad097168e2a9e48,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7042000146673273405, guid: 9eba14f7d4fce1649ad097168e2a9e48,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7494578711786048021, guid: 9eba14f7d4fce1649ad097168e2a9e48,
+        type: 3}
+      propertyPath: m_Name
+      value: NPCColliderTracker
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9eba14f7d4fce1649ad097168e2a9e48, type: 3}
+--- !u!114 &7001697811428652688 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4303753756167925374, guid: 9eba14f7d4fce1649ad097168e2a9e48,
+    type: 3}
+  m_PrefabInstance: {fileID: 6526004126318450926}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 514d735756529944cace7263e02dcca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6780957939437901730
 PrefabInstance:
   m_ObjectHideFlags: 0
