@@ -282,6 +282,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f55bcece2099e45ac0e5bf0c049bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1716760701771025269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613529189831593205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a947ce5b10ed8419f26311cba5f00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcColliderTracker: {fileID: 7001697811428652688}
+  healthDecreaseRate: 0.125
+  playerHealth: 1
 --- !u!114 &3382229506982813295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,19 +435,6 @@ MonoBehaviour:
   maxLowRumble: 0.4
   maxHighRumble: 0.6
   rumbleFaloffTime: 1
---- !u!114 &1716760701771025269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8613529189831593205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66a947ce5b10ed8419f26311cba5f00e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcColliderTracker: {fileID: 7001697811428652688}
 --- !u!1001 &6526004126318450926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -723,6 +725,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5ab865e60f59a341ab233723274c015, type: 3}
+--- !u!137 &3083475763088036412 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8417361359673230750, guid: b5ab865e60f59a341ab233723274c015,
+    type: 3}
+  m_PrefabInstance: {fileID: 6780957939437901730}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5970546601830296307 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b5ab865e60f59a341ab233723274c015,
@@ -763,7 +771,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4291768325542508693}
   rb: {fileID: 8613529189831593199}
-  IsSick: 0
+  playerHealth: {fileID: 1716760701771025269}
+--- !u!114 &6276820195785582864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5970546601830296307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0891e44431718c248ad77230995b85ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRenderer: {fileID: 3083475763088036412}
+  playerHealth: {fileID: 1716760701771025269}
+  healthyTexture: {fileID: 2800000, guid: 395fc958de2bf6b4095747195e358a58, type: 3}
+  sickTexture: {fileID: 2800000, guid: 5d2f94cab1d06674983e5724816f8f1f, type: 3}
 --- !u!1001 &8603799717539273266
 PrefabInstance:
   m_ObjectHideFlags: 0
