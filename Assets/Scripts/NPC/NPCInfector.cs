@@ -33,7 +33,6 @@ public class NPCInfector : MonoBehaviour
         // If the next update is reached
         if (Time.time >= nextUpdate)
         {
-            Debug.Log(Time.time + ">=" + nextUpdate);
             // Change the next update (current second+1)
             nextUpdate = Time.time + updateRate;
             // Call your fonction

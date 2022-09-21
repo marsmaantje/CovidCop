@@ -716,10 +716,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Influence
       objectReference: {fileID: 0}
+    - target: {fileID: 2872465965966917700, guid: 438cd665f92b3074cba9986db55c000d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.52
+      objectReference: {fileID: 0}
     - target: {fileID: 6563213633684287861, guid: 438cd665f92b3074cba9986db55c000d,
         type: 3}
       propertyPath: colliderBased
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541007956641043723, guid: 438cd665f92b3074cba9986db55c000d,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2.0687966
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541007956641043723, guid: 438cd665f92b3074cba9986db55c000d,
+        type: 3}
+      propertyPath: m_Offset.z
+      value: 1.1985056
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 438cd665f92b3074cba9986db55c000d, type: 3}
