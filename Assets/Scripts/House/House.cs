@@ -9,7 +9,7 @@ public class House : MonoBehaviour
     [SerializeField] private int houseCapacity = 4;
 
     [Header("Wait Times")]
-    [Range(1, 5)]
+    [Range(1, 20)]
     [SerializeField] public float minWaitTime = 1f;
     [Range(1, 20)]
     [SerializeField] public float maxWaitTime = 5f;
@@ -22,9 +22,7 @@ public class House : MonoBehaviour
     private float startMaxWaitTime;
 
 
-    // [SerializeField] private float lockdownCureChance;
-
-    [Range(1, 10)]
+    [Range(0, 10)]
     [SerializeField] private float npcHouseCooldown = 2f;
 
     [Range(0, 1)]
