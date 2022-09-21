@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Player health: " + playerHealth);
         // Decrease player health based on the number of NPCs in the list
-        playerHealth -= npcColliderTracker.NPCList.Count * healthDecreaseRate * Time.deltaTime;
+        playerHealth -= (npcColliderTracker.InfectedNPCList.Count * healthDecreaseRate * Time.deltaTime);
+        playerHealth = Mathf.Clamp(playerHealth, 0, 1);
     }
 }

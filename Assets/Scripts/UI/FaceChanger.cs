@@ -20,10 +20,10 @@ public class FaceChanger : MonoBehaviour
 
     void Update()
     {
-        if (sm.sickness >= 230)
+        if (sm.sickness >= 0.7f)
         {
             img.sprite = face0;
-        } else if (sm.sickness >= 100)
+        } else if (sm.sickness >= 0.3)
         {
             img.sprite = face1;
         } else
