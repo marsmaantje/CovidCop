@@ -71,6 +71,15 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LockdownAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""f663ced1-c1cd-4780-8c95-339c7d0d5b96"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -208,6 +217,17 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""e71e2dad-e0c7-42c0-8548-d0ab1fe98b70"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Pull"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""b70ca8c0-70f0-4f53-9a27-66e1fc4b40db"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
@@ -225,6 +245,28 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Push"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ed56628f-7081-420e-ae12-07dcd461c5f5"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Push"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a0e3ee4f-8343-4e64-b1d5-f99f29c07370"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LockdownAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -307,6 +349,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Pull = m_Player.FindAction("Pull", throwIfNotFound: true);
         m_Player_Push = m_Player.FindAction("Push", throwIfNotFound: true);
+        m_Player_LockdownAbility = m_Player.FindAction("LockdownAbility", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
@@ -374,6 +417,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Pull;
     private readonly InputAction m_Player_Push;
+    private readonly InputAction m_Player_LockdownAbility;
     public struct PlayerActions
     {
         private @InputSystem m_Wrapper;
@@ -383,6 +427,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Pull => m_Wrapper.m_Player_Pull;
         public InputAction @Push => m_Wrapper.m_Player_Push;
+        public InputAction @LockdownAbility => m_Wrapper.m_Player_LockdownAbility;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -407,6 +452,9 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                 @Push.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPush;
                 @Push.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPush;
                 @Push.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPush;
+                @LockdownAbility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockdownAbility;
+                @LockdownAbility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockdownAbility;
+                @LockdownAbility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockdownAbility;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -426,6 +474,9 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                 @Push.started += instance.OnPush;
                 @Push.performed += instance.OnPush;
                 @Push.canceled += instance.OnPush;
+                @LockdownAbility.started += instance.OnLockdownAbility;
+                @LockdownAbility.performed += instance.OnLockdownAbility;
+                @LockdownAbility.canceled += instance.OnLockdownAbility;
             }
         }
     }
@@ -488,6 +539,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnPull(InputAction.CallbackContext context);
         void OnPush(InputAction.CallbackContext context);
+        void OnLockdownAbility(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
