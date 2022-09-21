@@ -11014,6 +11014,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2305287053060965728, guid: 8dd28d2dbeb8a1a4ca3b5f138f343d15,
         type: 3}
+      propertyPath: npcHouseCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2305287053060965728, guid: 8dd28d2dbeb8a1a4ca3b5f138f343d15,
+        type: 3}
       propertyPath: minLockdownWaitTime
       value: 10
       objectReference: {fileID: 0}
