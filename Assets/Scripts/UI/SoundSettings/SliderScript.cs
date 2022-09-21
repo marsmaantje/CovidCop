@@ -13,6 +13,5 @@ public class SliderScript : MonoBehaviour
     void Update()
     {
         txt.SetText(string.Format("{0:0}", slider.value * 100));
-
     }
 }

@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class SavePreferences : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<FloatPreference> floatPreferences = new List<FloatPreference>();
 
-    // Update is called once per frame
-    void Update()
+    public void Save()
     {
-        
+        foreach (var preference in floatPreferences)
+        {
+            PlayerPrefs.SetFloat(preference.Name, preference.Value);
+            Debug.Log(preference.Name + " = " + preference.Value);
+        }
     }
 }

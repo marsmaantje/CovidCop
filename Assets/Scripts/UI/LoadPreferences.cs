@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class LoadPreferences : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<FloatPreference> floatPreferences = new List<FloatPreference>();
+    [SerializeField] bool loadOnStart = true;
+
+    private void Start()
     {
-        
+        if(loadOnStart)
+            Load();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Load()
     {
-        
+        foreach (var preference in floatPreferences)
+        {
+            if (PlayerPrefs.HasKey(preference.Name))
+            {
+                preference.Value = PlayerPrefs.GetFloat(preference.Name);
+            }
+        }
     }
 }
