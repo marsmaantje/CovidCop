@@ -9,13 +9,10 @@ public class SliderScript : MonoBehaviour
     public Slider slider;
     public TextMeshProUGUI txt;
 
-    void Start()
-    {
-    }
-
     
     void Update()
     {
-        txt.text = slider.value.ToString();
+        txt.SetText(slider.value.ToString());
+        
     }
 }
