@@ -24,4 +24,18 @@ public class PauseHandler : MonoBehaviour
             }
         }
     }
+
+    public void PauseGame()
+    {
+        isPause = true;
+        pauseScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+    
+    public void PlayGame()
+    {
+        isPause = false;
+        pauseScreen.SetActive(false);
+        Time.timeScale = 1;
+    }
 }

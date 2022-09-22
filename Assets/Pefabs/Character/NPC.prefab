@@ -5239,7 +5239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPC: {fileID: 1584196769699951305}
   ColliderTracker: {fileID: 1778324639598288970}
-  InfectionChance: 0.12
+  InfectionChance: 0.09
   updateRate: 1
 --- !u!23 &4535677388578384242 stripped
 MeshRenderer:
