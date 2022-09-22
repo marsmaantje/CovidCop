@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "51db1e42-898d-4d07-bf64-8d6cc1ae4df5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -247,42 +256,25 @@
                     "action": "LockdownAbility",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Menu",
-            "id": "42e49b7c-66de-4456-8bbe-7a7983a7760a",
-            "actions": [
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "7e2406e6-9123-41aa-a035-727556b284c5",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "52d5a7d4-474d-48d6-a2c5-9ea028b835f8",
-                    "path": "<Gamepad>/start",
+                    "id": "9614d8c2-f483-4c18-aa14-c3f825f971fe",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "Keyboard and Mouse",
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "cf60672b-8c02-4d87-92b7-8738a1270cf4",
-                    "path": "<Keyboard>/escape",
+                    "id": "28a84746-0f64-4820-a606-de5731a9c69d",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard and Mouse",
+                    "groups": "Gamepad",
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false

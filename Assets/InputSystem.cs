@@ -80,6 +80,15 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""51db1e42-898d-4d07-bf64-8d6cc1ae4df5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -269,42 +278,25 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""action"": ""LockdownAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Menu"",
-            ""id"": ""42e49b7c-66de-4456-8bbe-7a7983a7760a"",
-            ""actions"": [
-                {
-                    ""name"": ""Pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""7e2406e6-9123-41aa-a035-727556b284c5"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""52d5a7d4-474d-48d6-a2c5-9ea028b835f8"",
-                    ""path"": ""<Gamepad>/start"",
+                    ""id"": ""9614d8c2-f483-4c18-aa14-c3f825f971fe"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": ""Keyboard and Mouse"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""cf60672b-8c02-4d87-92b7-8738a1270cf4"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""id"": ""28a84746-0f64-4820-a606-de5731a9c69d"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard and Mouse"",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -350,9 +342,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
         m_Player_Pull = m_Player.FindAction("Pull", throwIfNotFound: true);
         m_Player_Push = m_Player.FindAction("Push", throwIfNotFound: true);
         m_Player_LockdownAbility = m_Player.FindAction("LockdownAbility", throwIfNotFound: true);
-        // Menu
-        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
-        m_Menu_Pause = m_Menu.FindAction("Pause", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -418,6 +408,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Pull;
     private readonly InputAction m_Player_Push;
     private readonly InputAction m_Player_LockdownAbility;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @InputSystem m_Wrapper;
@@ -428,6 +419,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
         public InputAction @Pull => m_Wrapper.m_Player_Pull;
         public InputAction @Push => m_Wrapper.m_Player_Push;
         public InputAction @LockdownAbility => m_Wrapper.m_Player_LockdownAbility;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -455,6 +447,9 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                 @LockdownAbility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockdownAbility;
                 @LockdownAbility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockdownAbility;
                 @LockdownAbility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLockdownAbility;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -477,43 +472,13 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                 @LockdownAbility.started += instance.OnLockdownAbility;
                 @LockdownAbility.performed += instance.OnLockdownAbility;
                 @LockdownAbility.canceled += instance.OnLockdownAbility;
-            }
-        }
-    }
-    public PlayerActions @Player => new PlayerActions(this);
-
-    // Menu
-    private readonly InputActionMap m_Menu;
-    private IMenuActions m_MenuActionsCallbackInterface;
-    private readonly InputAction m_Menu_Pause;
-    public struct MenuActions
-    {
-        private @InputSystem m_Wrapper;
-        public MenuActions(@InputSystem wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Pause => m_Wrapper.m_Menu_Pause;
-        public InputActionMap Get() { return m_Wrapper.m_Menu; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
-        public void SetCallbacks(IMenuActions instance)
-        {
-            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
-            {
-                @Pause.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
-                @Pause.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
-                @Pause.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnPause;
-            }
-            m_Wrapper.m_MenuActionsCallbackInterface = instance;
-            if (instance != null)
-            {
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
             }
         }
     }
-    public MenuActions @Menu => new MenuActions(this);
+    public PlayerActions @Player => new PlayerActions(this);
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {
@@ -540,9 +505,6 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
         void OnPull(InputAction.CallbackContext context);
         void OnPush(InputAction.CallbackContext context);
         void OnLockdownAbility(InputAction.CallbackContext context);
-    }
-    public interface IMenuActions
-    {
         void OnPause(InputAction.CallbackContext context);
     }
 }
