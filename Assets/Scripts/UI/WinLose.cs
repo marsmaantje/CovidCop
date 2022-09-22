@@ -25,6 +25,7 @@ public class WinLose : MonoBehaviour
     {
         if (gameOver)
         {
+            Time.timeScale = 0.01f;
             canvas.enabled = true;
             win.enabled = isWin;
             lose.enabled = isLose;
@@ -32,4 +33,18 @@ public class WinLose : MonoBehaviour
             canvas.enabled = false;
         }
     }
+
+    public void Win() {
+        gameOver = true;
+        isWin = true;
+
+    }
+    public void Lose() {
+        gameOver = true;
+        isLose = true;
+    }
+
+    // If key is pressed
+    
+
 }

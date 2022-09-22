@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Player health: " + playerHealth);
+        // Debug.Log("Player health: " + playerHealth);
         // Decrease player health based on the number of NPCs in the list
         playerHealth -= (npcColliderTracker.InfectedNPCList.Count * healthDecreaseRate * Time.deltaTime);
         playerHealth = Mathf.Clamp(playerHealth, 0, 1);

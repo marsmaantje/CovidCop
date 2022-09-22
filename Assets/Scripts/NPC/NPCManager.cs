@@ -35,6 +35,9 @@ public class NPCManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        Debug.Log("NPCManager Start");
+
         if (instance == null)
             instance = this;
 
@@ -45,7 +48,10 @@ public class NPCManager : MonoBehaviour
             spawnNPC();
 
         for (int i = 0; i < InfectedCountOnStart; i++)
+        {
             NPCList[i].infected = true;
+            InfectedNPCList.Add(NPCList[i]);
+        }
 
     }
 
@@ -114,11 +120,17 @@ public class NPCManager : MonoBehaviour
 
     void OnNPCInfected(NPCBehavior npc)
     {
-        InfectedNPCList.Add(npc);
+        if (!InfectedNPCList.Contains(npc))
+        {
+            InfectedNPCList.Add(npc);
+        }
     }
 
     void OnNPCCured(NPCBehavior npc)
     {
-        InfectedNPCList.Remove(npc);
+        if (InfectedNPCList.Contains(npc))
+        {
+            InfectedNPCList.Remove(npc);
+        }
     }
 }
