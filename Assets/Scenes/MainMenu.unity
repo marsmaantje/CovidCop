@@ -1447,7 +1447,6 @@ RectTransform:
   - {fileID: 402116950}
   - {fileID: 2003323677}
   - {fileID: 1509893755}
-  - {fileID: 200147422}
   - {fileID: 1992911520}
   - {fileID: 47628595}
   m_Father: {fileID: 0}
