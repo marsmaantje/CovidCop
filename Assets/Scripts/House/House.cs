@@ -31,6 +31,7 @@ public class House : MonoBehaviour
     [SerializeField] private bool isHospital = false;
 
     [SerializeField] private HouseManager houseManager;
+    [SerializeField] private PlayerManager playerManager;
 
 
     [SerializeField] private HouseState currentState = HouseState.Normal;
@@ -149,6 +150,21 @@ public class House : MonoBehaviour
                 }
             }
         }
+
+        if(other.gameObject.CompareTag("Player")) {
+            if(isHospital) {
+                if(PlayerManager.instance.playerHealth.playerHealth < 0.3f) {
+                    PlayerManager.instance.gameObject.SetActive(false);
+                    Invoke("ReleasePlayer", 3f);
+                }
+            }
+            
+        }
+    }
+
+    private void ReleasePlayer() {
+        PlayerManager.instance.gameObject.SetActive(true);
+        PlayerManager.instance.playerHealth.playerHealth = 1f;
     }
 
     private void ReleaseNPC()
