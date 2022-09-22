@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 
 
+
 public class Influence : MonoBehaviour
 {
     [SerializeField] private bool colliderBased = false;
@@ -22,7 +23,12 @@ public class Influence : MonoBehaviour
     [ColorUsage(true, true)]
     [SerializeField] private Color pullColor = Color.blue;
     [SerializeField] private float EffectSpeed = 1;
-    
+
+    [SerializeField] private AudioSource audioSource;
+
+    [SerializeField] private AudioClip pushSound;
+    [SerializeField] private AudioClip pullSound;
+
 
 
 
@@ -34,14 +40,29 @@ public class Influence : MonoBehaviour
 
     public void OnPush(InputAction.CallbackContext context)
     {
+        if (!isPushing)
+        {
+            audioSource.clip = pushSound;
+            audioSource.Play();
+        }
+
         isPushing = true;
         isPulling = false;
         InfluenceEffectMaterial.SetColor("_CircleColor", pushColor);
         InfluenceEffectMaterial.SetFloat("_Speed", EffectSpeed);
+
+
     }
 
     public void OnPull(InputAction.CallbackContext context)
     {
+
+        if (!isPulling)
+        {
+            audioSource.clip = pullSound;
+            audioSource.Play();
+        }
+
         isPulling = true;
         isPushing = false;
         InfluenceEffectMaterial.SetColor("_CircleColor", pullColor);
@@ -92,11 +113,11 @@ public class Influence : MonoBehaviour
                     npc.movement.DoMove(new Vector2(direction.x, direction.z) * (isPushing ? 1 : -1));
                     npc.SetState(NPCBehavior.NPCState.Influenced);
 
-                    if(!npc.gameObject.activeSelf)
+                    if (!npc.gameObject.activeSelf)
                     {
                         toRemove.Add(npc);
                     }
-                    
+
                 }
                 foreach (NPCBehavior npc in toRemove)
                 {
