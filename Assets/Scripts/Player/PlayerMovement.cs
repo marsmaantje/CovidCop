@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             Vector2 mousePosition = Mouse.current.position.ReadValue();
             //raycast from mouse position to ground
             Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-            if (Physics.Raycast(ray, out var hit, 1000))
+            if (Physics.Raycast(ray, out var hit, 1000, LayerMask.GetMask("Ground")))
             {
                 //get relative position from hit to player
                 Vector3 relativePosition = hit.point - transform.position;

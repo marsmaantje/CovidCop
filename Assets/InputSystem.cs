@@ -265,7 +265,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard and Mouse"",
                     ""action"": ""LockdownAbility"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

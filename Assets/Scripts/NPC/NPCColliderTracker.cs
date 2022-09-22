@@ -28,6 +28,16 @@ public class NPCColliderTracker : MonoBehaviour
         }
     }
 
+    private void OnDisable() {
+        NPCList.ForEach(npc => {
+            npc.OnInfected -= NPCInfected;
+            npc.OnCured -= NPCCured;
+        });
+
+        NPCList.Clear();
+        InfectedNPCList.Clear();
+    }
+
     private void OnTriggerExit(Collider other)
     {
         NPCBehavior npc = NPCManager.instance.GetNPC(other);

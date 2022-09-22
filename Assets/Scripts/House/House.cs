@@ -69,7 +69,7 @@ public class House : MonoBehaviour
         houseManager = FindObjectOfType<HouseManager>();
 
         houseManager.houses.Add(this);
-        Debug.Log("House added to HouseManager: " + this.name);
+        //Debug.Log("House added to HouseManager: " + this.name);
 
         startMinWaitTime = minWaitTime;
         startMaxWaitTime = maxWaitTime;
