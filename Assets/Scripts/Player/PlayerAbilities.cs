@@ -8,6 +8,10 @@ public class PlayerAbilities : MonoBehaviour
 
     private bool isLockdown = false;
 
+    [Header("Abilities")]
+    [Range(1, 60)]
+    [SerializeField] private float lockdownCooldown = 10f;
+
 
     // Start is called before the first frame update
     void Start()
