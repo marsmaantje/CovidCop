@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LockdownUI : MonoBehaviour
 {
-    RectMask2D mask;
+    [SerializeField] RectMask2D mask;
 
     [Range(0, 1)]
     public float lockdown;
@@ -14,15 +14,16 @@ public class LockdownUI : MonoBehaviour
 
     void Start()
     {
-        mask = GetComponent<RectMask2D>();
         modifyMask = new Vector4(0, 0, 0, 0);
     }
 
 
     void Update()
     {
+        lockdown = Mathf.Clamp01((PlayerManager.instance.playerAbilities.nextLockdownTime - Time.time) / PlayerManager.instance.playerAbilities.lockdownCooldown);
+
         mask.padding = modifyMask;
 
-        modifyMask.w = lockdown * 150;
+        modifyMask.y = lockdown * 150;
     }
 }

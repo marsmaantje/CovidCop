@@ -9,7 +9,7 @@ public class PlayerAbilities : MonoBehaviour
 
 
     [Range(1, 60)]
-    [SerializeField] private float lockdownCooldown = 10f;
+    public float lockdownCooldown = 10f;
     public float nextLockdownTime = 0f;
 
 
